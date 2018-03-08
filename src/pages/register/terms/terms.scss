@@ -1,0 +1,63 @@
+ion-header.no-scroll {
+  left: 0;
+  top: 0px;
+  position: sticky;
+  z-index: 10;
+  display: inline-table;
+  width: 100%;
+  overflow: hidden;
+}
+
+ion-title.titel_terms .toolbar-title {
+    font-size: 13px!important;
+    font-weight: normal;
+  }
+
+ion-content.content.popoverContact {
+  padding: 0px !important;
+
+    p{
+      font-size: 13px; color: #404040;
+      padding-top: 0px !important;
+    }
+  h2{
+    font-size: 12px !important;
+    line-height: 1.3em;
+  }
+  .checkbox-ios .checkbox-icon {
+    border-radius: 17%;
+    border-color: #959595;
+  }
+  .checkbox-ios-dark .checkbox-checked .checkbox-inner {
+    border-color: #022e8d;
+  }
+  .checkbox-ios-dark .checkbox-checked {
+    background-color: transparent;
+  }
+  .checkbox-ios .checkbox-checked .checkbox-inner {
+    left: 7px;
+    top: 4px;
+    position: absolute;
+    width: 6px;
+    height: 11px;
+    border-width: 2px;
+    border-top-width: 0;
+    border-left-width: 0;
+    border-style: solid;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+  ion-list{
+    margin-bottom: 0px;
+    ion-item{
+      padding-left: 0px;
+    }
+  }
+  .list-ios > .item-block:first-child {
+    border-top:0px !important;
+  }
+  .list-ios > .item-block:last-child {
+    border-bottom:0px !important;
+  }
+
+}

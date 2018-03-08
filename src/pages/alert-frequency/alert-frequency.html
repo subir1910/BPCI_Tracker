@@ -1,0 +1,63 @@
+<ion-header>
+  <ion-navbar color="primary" hideBackButton="true">
+    <ion-buttons start>
+      <button ion-button icon-only menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>Alert Frequency</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <form (ngSubmit)="alertFrequencyUpdate(alertFrequency)" #alertFrequency="ngForm">
+
+  <ion-card class="alert">
+    <ion-list >
+      <ion-item>
+        <h2>Patient Alert Frequency Settings</h2>
+        <p>Select each day patients will receive alert notifications at 09:00 am. </p>
+      </ion-item>
+
+      <ion-item class="border_bottom">
+        <ion-label><h2>Monday</h2></ion-label>
+        <ion-checkbox [(ngModel)]="monday" name="monday" color="dark" checked="true" checked="{{ monday ? 'true' : 'false' }}" item-end></ion-checkbox>
+      </ion-item>
+      <ion-item class="border_bottom">
+        <ion-label><h2>Tuesday</h2></ion-label>
+        <ion-checkbox [(ngModel)]="tuesday" name="tuesday" color="dark" checked="{{ tuesday ? 'true' : 'false' }}" item-end></ion-checkbox>
+      </ion-item>
+      <ion-item class="border_bottom">
+        <ion-label><h2>Wednesday</h2></ion-label>
+        <ion-checkbox [(ngModel)]="wednesday" color="dark" name="wednesday" checked="{{ wednesday ? 'true' : 'false' }}" item-end></ion-checkbox>
+      </ion-item>
+      <ion-item class="border_bottom">
+        <ion-label><h2>Thrusday</h2></ion-label>
+        <ion-checkbox [(ngModel)]="thrusday" color="dark" name="thrusday" checked="{{ thrusday ? 'true' : 'false' }}" item-end></ion-checkbox>
+      </ion-item>
+      <ion-item class="border_bottom">
+        <ion-label><h2>Friday</h2></ion-label>
+        <ion-checkbox [(ngModel)]="friday" color="dark" name="friday" checked="{{ friday ? 'true' : 'false' }}"  item-end></ion-checkbox>
+      </ion-item>
+      <ion-item class="border_bottom">
+        <ion-label><h2>Saturday</h2></ion-label>
+        <ion-checkbox [(ngModel)]="saturday" color="dark" checked="{{ saturday ? 'true' : 'false' }}" name="saturday" item-end></ion-checkbox>
+      </ion-item>
+      <ion-item class="border_bottom">
+        <ion-label><h2>Sunday</h2></ion-label>
+        <ion-checkbox [(ngModel)]="sunday" color="dark" checked="{{ sunday ? 'true' : 'false' }}" name="sunday" item-end></ion-checkbox>
+      </ion-item>
+    </ion-list>
+
+
+
+
+  </ion-card>
+
+  <button ion-button type="submit">Submit</button>
+
+  </form>
+
+
+</ion-content>

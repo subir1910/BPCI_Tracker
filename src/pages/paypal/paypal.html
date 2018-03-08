@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-buttons start>
+      <button ion-button icon-only (click)="closeModal()">
+        <ion-icon name="ios-close-circle-outline"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>Paypal</ion-title>
+  </ion-navbar>
+  <ion-toolbar *ngIf="showSearchbar">
+    <ion-searchbar></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="paypal_page" padding>
+  <form name="paymentForm">
+    <ion-item>
+      <ion-label floating>Amount</ion-label>
+      <ion-input type="text" name="amount" [(ngModel)]="payment.amount"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Currency</ion-label>
+      <ion-select [(ngModel)]="payment.currency" name="currency">
+        <ion-option value="{{currency}}" *ngFor="let currency of currencies">{{currency}}</ion-option>
+      </ion-select>
+    </ion-item>
+    <p>
+      <button ion-button block color="secondary" (click)="makePayment()">MAKE PAYMENT</button>
+    </p>
+  </form>
+</ion-content>

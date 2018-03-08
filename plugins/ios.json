@@ -1,0 +1,46 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "com.paypal.cordova.mobilesdk": {
+      "PACKAGE_NAME": "com.bpci.tracker"
+    },
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "com.bpci.tracker"
+    },
+    "cordova-plugin-splashscreen": {
+      "PACKAGE_NAME": "com.bpci.tracker"
+    },
+    "cordova-plugin-statusbar": {
+      "PACKAGE_NAME": "com.bpci.tracker"
+    },
+    "cordova-plugin-uniquedeviceid": {
+      "PACKAGE_NAME": "com.bpci.tracker"
+    },
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "com.bpci.tracker"
+    },
+    "cordova-sqlite-storage": {
+      "PACKAGE_NAME": "com.bpci.tracker"
+    },
+    "ionic-plugin-deeplinks": {
+      "URL_SCHEME": "myapp",
+      "DEEPLINK_SCHEME": "https",
+      "DEEPLINK_HOST": "bpcitracker.com",
+      "PACKAGE_NAME": "com.bpci.tracker"
+    },
+    "ionic-plugin-keyboard": {
+      "PACKAGE_NAME": "com.bpci.tracker"
+    }
+  },
+  "dependent_plugins": {
+    "card.io.cordova.mobilesdk": {
+      "PACKAGE_NAME": "com.bpci.tracker"
+    }
+  }
+}

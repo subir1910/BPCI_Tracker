@@ -1,0 +1,198 @@
+page-add-patient {
+  ion-content.content {
+    background: color($colors, bg-color);
+    background-image:url(../../assets/images/app-bg.png);
+    background-size: cover;
+  }
+  .label-ios input {
+    margin: 0;
+  }
+  div.invalid p {
+    text-align: left;
+    font-size: 11px;
+    margin: 0 0 10px 0;
+    color: red;
+  }
+  .form-content {
+    background: color($colors, primary);
+
+    .logo-row {
+      padding-top: 50px;
+      padding-bottom: 20px;
+    }
+    ion-row {
+      align-items: center;
+      text-align: center;
+    }
+    .item-inner{
+      padding-right: 0 !important;
+      border-bottom: 0 !important;
+    }
+
+    ion-item {
+      border-radius: 5px !important;
+      padding-left: 15px !important;
+      font-size: 0.9em;
+      margin-bottom: 10px;
+      box-shadow: none !important;
+      border: 0 !important;
+    }
+    ion-item.date-time-item{
+      background: #fff;
+    }
+    ion-item {
+      border-radius: 5px !important;
+      padding-left: 0 !important;
+      font-size: 0.9em;
+      margin-bottom: 10px;
+      box-shadow: none !important;
+      border: 0 !important;
+      background: transparent;
+      ion-input, ion-select, ion-textarea, ion-datetime{
+        height: 100%;
+        padding: 13px 15px;
+        background: #fff;
+        border-radius: 5px;
+        margin: 0;
+        input{
+          margin: 0;
+          height: 100%;
+        }
+        &.invalid{
+          border: 1px solid red !important;
+        }
+      }
+      ion-label{
+        padding: 0;
+        margin: 0;
+        height: 100%;
+        input{
+          padding: 0 15px;
+          height: 45px;
+          width: 100%;
+          background: #fff;
+          border-radius: 5px;
+          &.invalid{
+            border: 1px solid red !important;
+          }
+        }
+      }
+      &.invalid{
+        border: 1px solid red !important;
+      }
+    }
+    .item-radio{
+      background-color: transparent !important;
+      border: 1px solid #ffffff !important;
+    }
+    .item-block .item-inner {
+      border-bottom: 0px;
+      padding-right: 0;
+    }
+
+    ion-list {
+      margin: 0 !important;
+      &.invalid{
+        ion-label{
+          color: red !important;
+        }
+      }
+    }
+
+  .item-datetime, ion-item.item-radio{
+    ion-label{
+      padding: 15px;
+    }
+  }
+    ion-list.cupon_data ion-item {
+      background: #fff;
+      padding: 0 10px;
+      ion-label{
+        padding: 15px;
+      }
+    }
+
+    .theme-outline-btn {
+      border: 2px solid color($colors, dark);
+      box-shadow: none;
+      height: 4.3rem;
+      color: color($colors, secondary);
+      margin-top: 15px;
+    }
+
+    .signup-col {
+      padding-bottom: 20px;
+    }
+
+    .item-inner {
+      border-bottom-color: #ffffff !important;
+      box-shadow: none !important;
+    }
+
+    .theme-btn {
+      //@include gradientButton();
+      border-radius: 5px !important;
+      border-bottom: 3px solid #001541;
+      box-shadow: none;
+      height: 4.5rem;
+    }
+
+    .forgot-btn {
+      color: color($colors, secondary);
+    }
+    button.button-default{
+      @include gradientButton();
+      margin: 0px !important;
+    }
+    button.disable-hover.button.button-ios.button-default.button-default-ios {
+      margin-top: 5px;
+
+    }
+    ion-select {
+      max-width: 100%;
+      width: 100%;
+      padding-left: 0px;
+    }
+    h2{ margin-top: 0px;
+      margin-bottom: 5px;
+    }
+    p{ margin-bottom: 0px; font-size:12px; color: #595959;}
+    span.reg_span{
+      margin-bottom: 10px;
+      font-size: 12px;
+      color: #595959;
+      width: 100%;
+      float: left;}
+  }
+  ion-radio.item-radio.input-wrapper {
+    float: right;
+    width: 53%;
+    position: relative;
+    text-align: left;
+    left: 25px;
+  }
+
+  ion-radio.radio {
+    position: static;
+    display: block;
+    margin: 8px 11px 8px 8px;
+    background: #fff;
+    border-radius: 80%;
+    width: 21px;
+    height: 21px;
+  }
+  ion-list.coupon_text ion-item {
+    width: 76%;
+    float: left;
+    border-top-right-radius: 0px !important;
+    border-bottom-right-radius: 0px !important;
+  }
+  ion-list.coupon_text .button-default {
+    float: left !important;
+    width: 24% !important;
+    margin-top: 0px !important;
+    height: 44x;
+  }
+
+
+}

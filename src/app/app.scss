@@ -1,0 +1,200 @@
+// http://ionicframework.com/docs/theming/
+
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+
+.back-button-icon-ios {
+  font-size: 2.5rem;
+}
+.button-default{
+  @include gradientButton();
+}
+.scroll-content{
+  background: transparent !important;
+}
+.has-refresher > .scroll-content{
+  border: 0 !important;
+}
+.menuHeader{
+  .toolbar-title{
+    margin-top: 35px;
+  }
+}
+.header-ios .toolbar-ios.searchBar:last-child .toolbar-background-ios{
+  background-color: #5687f0;
+}
+.paypal_page {
+  color: #000;
+  background-color: transparent;
+  background-image: url(../assets/images/app-bg.png) !important;
+  background-position: center center;
+  background-size: contain;
+}
+.toolbar.searchBar .searchbar-ios .searchbar-input{
+  background-color: #fff !important;
+}
+.btnClose {
+  position: absolute;
+  top: 30px;
+  right: 10px;
+  width: 25px;
+  height: 25px;
+  line-height: 0;
+  text-align: center;
+  border-radius: 50px;
+  border: 1px solid #fff;
+}
+.btnClose ion-icon {
+  padding: 0 0.1em;
+  font-size: 1.5em !important;
+  line-height: .5 !important;
+  pointer-events: none;
+}
+.btnClose button {
+  line-height: 0em !important;
+  height: 25px;
+}
+ion-nav{
+  ion-content{
+    background-image: url('../assets/images/app-bg.png') !important;
+  }
+}
+.form-content {
+  .col{
+    padding: 0;
+  }
+}
+#sidenav {
+  ion-item-group[sidemenu] {
+    overflow: hidden;
+    display: block;
+    height: 0;
+    transition: height .3s linear;
+    &.visible {
+      height: 300px;
+      // this is just sample value, calculate how much space you need for your menu items
+    }
+  }
+}
+.theme-outline-btn{
+  background: transparent !important;
+}
+.ion-page{
+  //background-image: url(../../assets/images/app-bg.png);
+  background-size: cover;
+}
+.popover-ios .popover-content {
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 0 21px;
+  -moz-box-shadow: 0 0 21px;
+  -webkit-box-shadow: 0 0 21px;
+  -ms-box-shadow: 0 0 21px;
+}
+ion-popover ion-navbar.toolbar{
+  padding: 0 15px;
+}
+ion-popover ion-navbar.toolbar ion-icon {
+  display: inline-block;
+  font-size: 2.5em;
+  color: #fff;
+}
+.popoverContact{
+  padding-top: 40px !important;
+}
+ion-backdrop{
+  opacity: 0.6 !important;
+}
+.organizationName{
+  float: left;
+  width: 100%;
+}
+.menuHeader {
+  ion-toolbar {
+    min-height: 100px !important;
+
+    ion-title{
+      padding: 0 40px 1px;
+    }
+  }
+}
+.item-ios [item-left],
+.item-ios [item-start] {
+  margin: 8px 5px 8px 0;
+}
+ion-menu {
+  ion-list {
+    ion-item {
+      border-bottom: 1px solid rgba(255,255,255,0.1) !important;
+      border-top: 0 !important;
+      background-color: transparent !important;
+      font-weight: 300 !important;
+      color: #fff !important;
+      text-transform: uppercase;
+      font-size: 14px !important;
+      .item-inner {
+        border: 0 !important;
+      }
+      ion-icon{
+        font-size: 20px !important;
+        line-height: 2.6rem !important;
+      }
+    }
+    ion-item-group{
+      ion-item{
+        font-size: 12px !important;
+        min-height:3rem !important;
+        background-color: transparent !important;
+        border-bottom: none !important;
+        ion-icon{
+          margin-top: 0 !important;
+          margin-bottom: 0 !important;
+        }
+      }
+    }
+  }
+}
+
+ion-item-group.submenu {
+    ion-item {
+    /* padding-left: 48px; */
+    margin-left: 25px;
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: none !important;
+    position: relative;
+  }
+}
+ion-item-group.submenu ion-item:before {
+  content: "";
+  left: 0;
+  width: 10px;
+  height: 1px;
+  background: rgba(255,255,255,0.1);
+  position: absolute;
+}
+
+.toolbar-title-ios{
+  font-weight:100 !important;
+  label{
+    font-size: 1.2rem;
+  }
+}
+h2{ color: #022e8d; font-size:16px; font-weight: 400;}
+ion-menu {
+  ion-content{
+    background-color: color($colors, primary) !important;
+  }
+}
+

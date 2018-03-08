@@ -1,0 +1,145 @@
+page-register {
+  .label-ios input {
+    margin: 0;
+  }
+  .select-text{
+    line-height: 45px;
+  }
+  ion-radio.item-radio.input-wrapper {
+    float: right;
+    width: 53%;
+    position: relative;
+    text-align: left;
+    left: 25px;
+  }
+
+  ion-radio.radio {
+    position: static;
+    display: block;
+    margin: 8px 11px 8px 8px;
+    background: #fff;
+    border-radius: 80%;
+    width: 21px;
+    height: 21px;
+  }
+  .terms-block{
+    float: left;
+    width: 100%;
+  }
+  .terms-block > span{
+    display: inline-block;
+    vertical-align: middle;
+    text-align: left;
+  }
+  .terms-block span.anchor_btn{
+    width: calc(100% - 50px);
+  }
+  div.invalid p {
+    text-align: left;
+    font-size: 11px;
+    margin: 0 0 10px 0;
+    color: red;
+  }
+  .form-content {
+    background: color($colors, bg-color);
+
+    .logo-row {
+      padding-top: 50px;
+      padding-bottom: 20px;
+    }
+    ion-row {
+      align-items: center;
+      text-align: center;
+    }
+    .item-inner{
+      padding-right: 0 !important;
+      border-bottom: 0 !important;
+    }
+
+    ion-item {
+      border-radius: 5px !important;
+      padding-left: 0 !important;
+      font-size: 0.9em;
+      margin-bottom: 10px;
+      box-shadow: none !important;
+      border: 0 !important;
+      background: transparent;
+      ion-input, ion-select, ion-textarea, ion-datetime{
+        padding: 0 15px;
+        height: 100%;
+        background: #fff;
+        border-radius: 5px;
+        input{
+          margin: 0;
+          height: 100%;
+        }
+        &.invalid{
+          border: 1px solid red !important;
+        }
+      }
+      ion-label{
+        padding: 0;
+        margin: 0;
+        height:100%;
+        input{
+          padding: 0 15px;
+          height: 100%;
+          width: 100%;
+          background: #fff;
+          border-radius: 5px;
+          &.invalid{
+            border: 1px solid red !important;
+          }
+        }
+      }
+    }
+
+
+    ion-list {
+      margin: 0 !important;
+    }
+
+    .theme-outline-btn {
+      border: 2px solid color($colors, dark);
+      box-shadow: none;
+      height: 4.3rem;
+      color: color($colors, primary);
+      margin-top: 15px;
+    }
+    ion-select {
+      max-width: 100%;
+      width: 100%;
+      padding-left: 0px;
+    }
+    .select-icon{
+      height: 45px;
+    }
+    .select-ios .select-placeholder{
+      line-height: 45px;
+    }
+    .signup-col {
+      padding-bottom: 20px;
+    }
+
+    .item-inner {
+      border-bottom-color: #ffffff !important;
+      box-shadow: none !important;
+    }
+    .button-clear-ios-secondary{
+      color: color($colors, primary);
+    }
+
+    .theme-btn {
+      @include gradientButton();
+      border-radius: 5px !important;
+      border-bottom: 3px solid #001541;
+      box-shadow: none;
+      height: 4.5rem;
+    }
+
+    .forgot-btn {
+      color: color($colors, primary);
+    }
+  }
+}
+

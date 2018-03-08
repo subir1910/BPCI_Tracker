@@ -1,0 +1,50 @@
+page-profile {
+  .scroll-content {
+    padding: 0px !important;
+  }
+  ion-content.content {
+    background: color($colors, bg-color);
+    background-image:url(../../assets/images/app-bg.png);
+    background-size: cover;
+  }
+
+  ion-card.card{
+    @include borderRadius(15px);
+    @include boxShadow(0px 0px 6px rgba(0,0,0,0.2));
+    background: #fff;
+    border: 0px;
+    margin: 12px;
+    padding: 0px 10px !important;
+  }
+  .profile_content {
+    ion-item {
+      padding: 7px 14px;
+      border-bottom: 1px solid #eaeaea;
+
+      h2{
+        color: color($colors, profile_h2);
+      }
+      p{
+        font-size: 12px;
+        padding-bottom: 3px;
+      }
+      .label-ios {
+        margin: 0px;
+        padding:3px 0px;
+      }
+      .item-ios.item-block .item-inner{
+        padding-right: 0px;
+      }
+      .item-inner {
+        padding-right: 0px !important;
+
+      }
+      .item-block:last-child {
+        border-bottom: none;
+      }
+    }
+    ion-item:last-child{
+      border: 0 !important;
+    }
+  }
+}

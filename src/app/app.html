@@ -1,0 +1,83 @@
+<!--Loged menu-->
+<ion-split-pane when="(min-width: 1920px)">
+<ion-menu id="loggedOutMenu" [content]="nav">
+
+  <ion-header [ngClass]="{'expanded': expanded}" class="menuHeader">
+    <ion-toolbar color="primary">
+      <ion-title>
+        Menu
+      </ion-title>
+      <ion-buttons end class="btnClose" text-center>
+        <button ion-button icon-only menuClose>
+          <ion-icon name="close"></ion-icon>
+        </button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <ion-list>
+      <ion-item *ngFor="let logoutPage of loggedOutPages" ion-item (click)="openPage(logoutPage)">
+        <ion-icon [name]="logoutPage.icon" item-left></ion-icon>
+        {{ logoutPage.title }}
+      </ion-item>
+
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<!-- logged in menu -->
+<ion-menu id="loggedInMenu" [content]="nav">
+  <ion-header [ngClass]="{'expanded': expanded}" class="menuHeader">
+    <ion-toolbar color="primary">
+      <ion-title>
+        <label>Orgination Name</label>
+        <span *ngIf="organization_name;else other_type" class="organizationName">{{ organization_name }}</span>
+        <ng-template #other_type ><span class="organizationName">{{ authService.userOrg }}</span></ng-template>
+      </ion-title>
+      <ion-buttons end class="btnClose" text-center>
+        <button ion-button icon-only menuClose>
+          <ion-icon name="close"></ion-icon>
+        </button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-list>
+      <ion-item ion-item (click)="onLoad(profilePage)">
+        <ion-icon name="ios-person-outline" item-left></ion-icon>
+        My Account
+      </ion-item>
+
+      <ion-item-group submenu [class.visible]="showSubmenu" class="submenu">
+        <ion-item *ngFor="let accountPage of accountPages" submenu-item (click)="openPage(accountPage)">
+          <ion-icon [name]="accountPage.icon" item-left></ion-icon>
+          {{ accountPage.title }}
+        </ion-item>
+      </ion-item-group>
+
+      <!--Managment Patient-->
+      <ion-item ion-item (click)="onLoad(patientTabs)">
+        <ion-icon name="people" item-left></ion-icon>
+        Manage Patients
+      </ion-item>
+
+      <ion-item-group submenu [class.visible]="showSubmenu" class="submenu">
+        <ion-item *ngFor="let patientPage of patientPages" submenu-item (click)="openPage(patientPage)">
+          <ion-icon [name]="patientPage.icon" item-left></ion-icon>
+          {{ patientPage.title }}
+        </ion-item>
+      </ion-item-group>
+
+
+      <ion-item *ngFor="let loginPage of loggedInPages" ion-item (click)="openPage(loginPage)">
+        <ion-icon [name]="loginPage.icon" item-left></ion-icon>
+        {{ loginPage.title }}
+      </ion-item>
+
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<ion-nav [root]="rootPage" #nav swipeBackEnabled="false" main name="app"></ion-nav>
+</ion-split-pane>

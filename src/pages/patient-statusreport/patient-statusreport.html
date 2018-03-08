@@ -1,0 +1,134 @@
+<ion-header>
+  <ion-navbar color="primary" hideBackButton="true">
+    <ion-buttons start>
+      <button ion-button icon-only menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>Patient Status Report</ion-title>
+  </ion-navbar>
+  <ion-toolbar *ngIf="showSearchbar">
+    <ion-searchbar></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="patient-status" padding>
+  <!--
+    <form (ngSubmit)="register()" #registerForm="ngForm">
+      <ion-list>
+        <ion-item>
+          <ion-input type="text" placeholder="Start Date" name="Start Date" required></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-input type="text" placeholder="End Date" name="End Date" required></ion-input>
+        </ion-item>
+      </ion-list>
+
+      <ion-list>
+        <ion-item>
+          <ion-select placeholder="Patient Episode Type">
+            <ion-option value="nes">NES</ion-option>
+            <ion-option value="n64">Nintendo64</ion-option>
+            <ion-option value="ps">PlayStation</ion-option>
+            <ion-option value="genesis">Sega Genesis</ion-option>
+            <ion-option value="saturn">Sega Saturn</ion-option>
+            <ion-option value="snes">SNES</ion-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+
+      <button ion-button >
+        Submit
+      </button>
+      <button ion-button>
+        Export CSV
+        <ion-icon name="arrow-forward"></ion-icon>
+      </button>
+    </form>
+    -->
+
+    <form #searchForm="ngForm" (ngSubmit)="searhStatus(searchForm)">
+        <ion-grid>
+          <ion-row>
+            <ion-col col-lg-6>
+                <ion-item class="date-time-item">
+                  <ion-label>Start date</ion-label>
+                  <ion-datetime ngModel id="start_date" id="start_date" displayFormat="MM-DD-YYYY"  max="2020-10-31" name="start_date"><input type="datetime-local"> </ion-datetime>
+                </ion-item>
+            </ion-col>
+            <ion-col col-lg-6>
+                <ion-item class="date-time-item">
+                  <ion-label>End date</ion-label>
+                  <ion-datetime ngModel id="end_date" id="end_date" displayFormat="MM-DD-YYYY" max="2020-10-31" name="end_date"><input type="datetime-local"> </ion-datetime>
+                </ion-item>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+              <ion-col col-lg-12>
+                  <ion-list>
+                      <ion-item>
+                          <ion-select ngModel name="episode_type" id="episode_type">
+                              <ion-option selected="selected" value="">Episode Type</ion-option>
+                              <ion-option *ngFor="let episodes of episode" value="{{ episodes.value }}">{{ episodes.text }}</ion-option>
+                          </ion-select>
+                      </ion-item>
+                    </ion-list>
+              </ion-col>
+          </ion-row>
+          <ion-row>
+            <button ion-button type="submit">Submit</button>
+          </ion-row>
+        </ion-grid>
+      </form>
+
+
+    <div *ngIf="noSearchData">
+      <h3 text-center>{{ noSearchData }}</h3>
+    </div>
+
+    <ion-card *ngIf="searchData">
+        <ion-list class="status-report">
+            <ion-item>
+              <ion-grid *ngFor="let report of searchStatusReport">
+                <ion-row (click)="onLoadChat(report.p_id)" style="display: block;">
+                  <ion-col col-lg-12>
+                    <!--<p>Patient Name </p>-->
+                  <h3><h2>Patient: {{ report.patient_name }}</h2></h3>
+                </ion-col>
+    
+                <ion-col col-lg-12>
+                  <!--<p>Patient Episode Type </p>-->
+                  <h2>{{ report.patient_episode_type }}</h2>
+                </ion-col>
+                <ion-icon name="arrow-forward" float-right></ion-icon>
+              </ion-row>
+            </ion-grid>
+    
+          </ion-item>
+        </ion-list>
+    </ion-card>
+
+    <ion-card *ngIf="statusReport">
+      <ion-list class="status-report">
+        <ion-item>
+          <ion-grid *ngFor="let report of statusReport">
+            <ion-row (click)="onLoadChat(report.p_id)" style="display: block;">
+              <ion-col col-lg-12>
+                <!--<p>Patient Name </p>-->
+              <h3><h2>Patient: {{ report.patient_name }}</h2></h3>
+            </ion-col>
+
+            <ion-col col-lg-12>
+              <!--<p>Patient Episode Type </p>-->
+              <h2>{{ report.patient_episode_type }}</h2>
+            </ion-col>
+            <ion-icon name="arrow-forward" float-right></ion-icon>
+          </ion-row>
+        </ion-grid>
+
+      </ion-item>
+    </ion-list>
+  </ion-card>
+
+</ion-content>

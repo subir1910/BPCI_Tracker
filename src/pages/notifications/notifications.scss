@@ -1,0 +1,104 @@
+page-notifications {
+  ion-content.content {
+    background: color($colors, bg-color);
+    //background-image: url(../../assets/images/app-bg.png);
+    background-size: cover;
+  }
+  .login-content{
+    width: 100%;
+    height: auto;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+  }
+  ion-row {
+    align-items: center;
+    text-align: center;
+  }
+  ion-select .select-icon-inner{
+    border: 0px!important;
+  }
+  ion-select .select-icon-inner:after{
+    @include iosArrowdown;
+  }
+  .select-ios .select-icon {
+    position: relative;
+    width: 13px;
+    height: 8px;
+  }
+  .select-ios {
+    padding: 11px 8px 11px 6px;
+  }
+  ion-card.card{
+    @include borderRadius(15px);
+    @include boxShadow(0px 0px 6px rgba(0,0,0,0));
+    background: #fff;
+    border: 0px;
+    margin: 0px;
+    padding: 0px 10px !important;
+    width: calc(100% - 0px);
+    margin-top: 10px;
+  }
+  ion-label{
+    white-space: inherit;
+  }
+  ion-item {
+    border-radius: 5px !important;
+    padding-left: 8px !important;
+    font-size: 0.9em;
+    margin-bottom: 10px;
+    box-shadow: none !important;
+    border: 0 !important;
+  }
+  button.button-default {
+    @include gradientButton();
+    width: 49.4%;
+    margin-top: 10px !important;
+    margin: 0px;
+    margin-bottom: 14px !important;
+  }
+  button.disable-hover.button.button-ios.button-default.button-default-ios {
+    margin-top: 5px;
+
+  }
+  ion-select {
+    max-width: 100%;
+    width: 100%;
+    padding-left: 0px;
+  }
+  h2 {
+    margin-top: 0px;
+    margin-bottom: 5px;
+  }
+  p {
+    margin-bottom: 30px;
+    font-size: 14px;
+    color: #404040;
+  }
+  ion-list {
+    margin: 0 !important;
+  }
+  .notification_content{
+
+  ion-icon{
+    background-color: #022e8d;
+    border-radius: 100%;
+    width: 25px;
+    height: 25px;
+    color: #fff;
+    font-size: 15px;
+    margin-right: 10px;
+    padding-top: 5px !important;
+    text-align: center;
+  }
+    span {
+      font-style: italic;
+      color: #022e8d;
+    }
+    p{
+      margin-left: 32px;
+      color: #afafaf;
+      margin-top: 10px;
+    }
+  }
+
+}

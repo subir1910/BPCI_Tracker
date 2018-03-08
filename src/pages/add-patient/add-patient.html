@@ -1,0 +1,253 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-buttons start>
+      <button ion-button icon-only menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>Add Patient</ion-title>
+  </ion-navbar>
+  <ion-toolbar *ngIf="showSearchbar">
+    <ion-searchbar></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="form-content" padding>
+  <div class="login-box">
+    <p *ngIf="submitAttempt" style="color: red; margin-bottom: 15px;">Please fill out all details accurately.</p>
+    <form #addPatientForm="ngForm" [formGroup]="patientAddForm" (ngSubmit)="addPatient(addPatientForm.value)">
+          <h2>Patient Information</h2>
+          <ion-list>
+            <ion-item>
+              <ion-input type="text" [class.invalid]="!patientAddForm.controls.input_10_3.valid && (patientAddForm.controls.input_10_3.dirty || submitAttempt)" placeholder="First Name" formControlName="input_10_3" name="input_10_3" id="input_10_3" value=""></ion-input>
+            </ion-item>
+
+            <div class="invalid" *ngIf="input_10_3.hasError('required') && input_10_3.touched"
+                 class="error-box" class="invalid"><p>* First name is required!</p></div>
+
+            <ion-item>
+              <ion-input type="text" placeholder="Last Name" formControlName="input_10_6" name="input_10_6" id="input_10_6"></ion-input>
+            </ion-item>
+          </ion-list>
+
+          <h2>Patient Language</h2>
+          <ion-list>
+            <ion-item>
+              <ion-select [class.invalid]="!patientAddForm.controls.input_11.valid && (patientAddForm.controls.input_11.dirty || submitAttempt)" formControlName="input_11" name="input_11" id="input_11">
+                <ion-option value="English">English</ion-option>
+                <ion-option value="Spanish">Spanish</ion-option>
+              </ion-select>
+            </ion-item>
+          </ion-list>
+
+      <h2>Patient Time Zone</h2>
+      <ion-list>
+        <ion-item>
+          <ion-select [class.invalid]="!patientAddForm.controls.input_12.valid && (patientAddForm.controls.input_12.dirty || submitAttempt)" formControlName="input_12" name="input_12" id="input_12">
+            <ion-option *ngFor="let timezones of timezone" value="{{ timezones.value }}">{{ timezones.text }}</ion-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+
+      <h2>Patient Mobile Phone*</h2>
+      <ion-list>
+        <ion-item>
+          <input [textMask]="{mask: masks.phoneNumber}" [class.invalid]="!patientAddForm.controls.input_2.valid && (patientAddForm.controls.input_2.dirty || submitAttempt)" formControlName="input_2" class="text-input text-input-ios" type="tel" name="input_2" id="input_2" />
+        </ion-item>
+      </ion-list>
+      <h2>Alternate Contact Mobile Phone</h2>
+      <ion-list>
+        <ion-item>
+          <input [textMask]="{mask: masks.phoneNumber}" [class.invalid]="!patientAddForm.controls.input_3.valid && (patientAddForm.controls.input_3.dirty || submitAttempt)" class="text-input text-input-ios" formControlName="input_3" type="tel" name="input_3" id="input_3" />
+        </ion-item>
+      </ion-list>
+
+      <h2>Patient Address*</h2>
+      <ion-list>
+        <ion-item>
+          <ion-input formControlName="input_4_2" [class.invalid]="!patientAddForm.controls.input_4_2.valid && (patientAddForm.controls.input_4_2.dirty || submitAttempt)" type="text" name="input_4_2" id="input_4_2" ></ion-input>
+        </ion-item>
+      </ion-list>
+
+      <h2>City</h2>
+      <ion-list>
+        <ion-item>
+          <ion-input formControlName="input_4_3" [class.invalid]="!patientAddForm.controls.input_4_3.valid && (patientAddForm.controls.input_4_3.dirty || submitAttempt)" type="text" name="input_4_3" id="input_4_3"></ion-input>
+        </ion-item>
+      </ion-list>
+
+      <h2>State</h2>
+      <ion-list>
+        <ion-item>
+          <ion-select formControlName="input_4_4" [class.invalid]="!patientAddForm.controls.input_4_4.valid && (patientAddForm.controls.input_4_4.dirty || submitAttempt)" name="input_4_4" id="input_4_4" tabindex="16">
+            <ion-option value="United States" selected="selected">United States</ion-option>
+            <ion-option value="Alabama">Alabama</ion-option>
+            <ion-option value="Alaska">Alaska</ion-option>
+            <ion-option value="Arizona">Arizona</ion-option>
+            <ion-option value="Arkansas">Arkansas</ion-option>
+            <ion-option value="California">California</ion-option>
+            <ion-option value="Colorado">Colorado</ion-option>
+            <ion-option value="Connecticut">Connecticut</ion-option>
+            <ion-option value="Delaware">Delaware</ion-option>
+            <ion-option value="District of Columbia">District of Columbia</ion-option>
+            <ion-option value="Florida">Florida</ion-option>
+            <ion-option value="Georgia">Georgia</ion-option>
+            <ion-option value="Hawaii">Hawaii</ion-option>
+            <ion-option value="Idaho">Idaho</ion-option>
+            <ion-option value="Illinois">Illinois</ion-option>
+            <ion-option value="Indiana">Indiana</ion-option>
+            <ion-option value="Iowa">Iowa</ion-option>
+            <ion-option value="Kansas">Kansas</ion-option>
+            <ion-option value="Kentucky">Kentucky</ion-option>
+            <ion-option value="Louisiana">Louisiana</ion-option>
+            <ion-option value="Maine">Maine</ion-option>
+            <ion-option value="Maryland">Maryland</ion-option>
+            <ion-option value="Massachusetts">Massachusetts</ion-option>
+            <ion-option value="Michigan">Michigan</ion-option>
+            <ion-option value="Minnesota">Minnesota</ion-option>
+            <ion-option value="Mississippi">Mississippi</ion-option>
+            <ion-option value="Missouri">Missouri</ion-option>
+            <ion-option value="Montana">Montana</ion-option>
+            <ion-option value="Nebraska">Nebraska</ion-option>
+            <ion-option value="Nevada">Nevada</ion-option>
+            <ion-option value="New Hampshire">New Hampshire</ion-option>
+            <ion-option value="New Jersey">New Jersey</ion-option>
+            <ion-option value="New Mexico">New Mexico</ion-option>
+            <ion-option value="New York">New York</ion-option>
+            <ion-option value="North Carolina">North Carolina</ion-option>
+            <ion-option value="North Dakota">North Dakota</ion-option>
+            <ion-option value="Ohio">Ohio</ion-option>
+            <ion-option value="Oklahoma">Oklahoma</ion-option>
+            <ion-option value="Oregon">Oregon</ion-option>
+            <ion-option value="Pennsylvania">Pennsylvania</ion-option>
+            <ion-option value="Rhode Island">Rhode Island</ion-option>
+            <ion-option value="South Carolina">South Carolina</ion-option>
+            <ion-option value="South Dakota">South Dakota</ion-option>
+            <ion-option value="Tennessee">Tennessee</ion-option>
+            <ion-option value="Texas">Texas</ion-option>
+            <ion-option value="Utah">Utah</ion-option>
+            <ion-option value="Vermont">Vermont</ion-option>
+            <ion-option value="Virginia">Virginia</ion-option>
+            <ion-option value="Washington">Washington</ion-option>
+            <ion-option value="West Virginia">West Virginia</ion-option>
+            <ion-option value="Wisconsin">Wisconsin</ion-option>
+            <ion-option value="Wyoming">Wyoming</ion-option>
+            <ion-option value="Armed Forces Americas">Armed Forces Americas</ion-option>
+            <ion-option value="Armed Forces Europe">Armed Forces Europe</ion-option>
+            <ion-option value="Armed Forces Pacific">Armed Forces Pacific</ion-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+
+      <h2>Zip / Postal Code</h2>
+      <ion-list>
+        <ion-item>
+          <ion-input formControlName="input_4_5" [class.invalid]="!patientAddForm.controls.input_4_5.valid && (patientAddForm.controls.input_4_5.dirty || submitAttempt)" type="text" name="input_4_5" id="input_4_5"></ion-input>
+        </ion-item>
+      </ion-list>
+
+      <h2>Notes</h2>
+      <ion-list>
+        <ion-item>
+          <ion-textarea formControlName="input_14" [class.invalid]="!patientAddForm.controls.input_14.valid && (patientAddForm.controls.input_14.dirty || submitAttempt)" type="text" placeholder="" name="input_14" id="input_14"></ion-textarea>
+        </ion-item>
+      </ion-list>
+
+      <h2>Patient Episode Type*</h2>
+      <ion-list>
+        <ion-item>
+          <ion-select formControlName="input_15" [class.invalid]="!patientAddForm.controls.input_15.valid && (patientAddForm.controls.input_15.dirty || submitAttempt)" name="input_15" id="input_15" tabindex="17">
+            <ion-option *ngFor="let episodes of episode" value="{{ episodes.value }}" selected="selected">{{ episodes.text }}</ion-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+
+
+      <h2>Referral Source<br>(Hospital, SNF, Home Health)*</h2>
+       <ion-list>
+        <ion-item>
+          <ion-input formControlName="input_6" [class.invalid]="!patientAddForm.controls.input_6.valid && (patientAddForm.controls.input_6.dirty || submitAttempt)" type="text" name="input_6" id="input_6"></ion-input>
+        </ion-item>
+
+      </ion-list>
+
+      <h2>Tracking Start Date </h2>
+      <ion-item class="date-time-item" [class.invalid]="!patientAddForm.controls.input_7.valid && (patientAddForm.controls.input_7.dirty || submitAttempt)">
+        <ion-label>Select date</ion-label>
+        <ion-datetime formControlName="input_7" id="input_7" displayFormat="MM-DD-YYYY" min="{{minDateOfPicker}}" max="2020-10-31" name="input_7"><input type="datetime-local"> </ion-datetime>
+      </ion-item>
+
+      <h2>Tracking Period</h2>
+      <span class="reg_span">
+          How long will you track patient episode?
+        </span>
+      <ion-list>
+        <ion-item>
+          <ion-select hidden formControlName="input_8" name="input_8" id="input_8">
+            <ion-option value="30 Days" selected="">30 Days</ion-option>
+            <ion-option value="60 Days">60 Days</ion-option>
+            <ion-option value="90 Days">90 Days</ion-option>
+          </ion-select>
+          <ion-select #episodes_value formControlName="input_21" [class.invalid]="!patientAddForm.controls.input_21.valid && (patientAddForm.controls.input_21.dirty || submitAttempt)" name="input_21" id="input_21" (ionChange)="calculatePrice(episodes_value.value)">
+            <ion-option *ngFor="let period of service_type" price="" value="{{ period.value }}">{{ period.text }} +{{ period.price }}</ion-option>
+          </ion-select>
+        </ion-item>
+
+      </ion-list>
+      <!--
+      <h2>Service Price</h2>
+      <ion-row *ngIf="priceData">
+        <span class="ginput_product_price" id="input_18.2"></span>
+      </ion-row> -->
+
+      <h2>Tracking Communication Type</h2>
+      <ion-list radio-group="relationship" formControlName="input_13" [class.invalid]="!patientAddForm.controls.input_13.valid && (patientAddForm.controls.input_13.dirty || submitAttempt)" name="input_13">
+        <ion-item>
+          <ion-label>Text (SMS) Alert</ion-label>
+          <ion-radio value="sms" checked></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label>Voice Alert</ion-label>
+          <ion-radio value="voice"></ion-radio>
+        </ion-item>
+      </ion-list>
+
+      <h2>Discount Code</h2>
+      <ion-list class="coupon_text">
+        <ion-item>
+          <ion-input #coupanValue formControlName="input_23" type="text" placeholder="" id="input_23" name="input_23"></ion-input>
+        </ion-item>
+        <button ion-button type="button" (click)="checkCoupan(addPatientForm);">Apply</button>
+      </ion-list>
+
+      <ion-list *ngIf="couponData" class="cupon_data">
+        <ion-item>
+          <button ion-button item-end type="button" (click)="cancelCoupan(beforeCoupanAmnt, addPatientForm)">
+            <ion-icon name="close"></ion-icon>
+          </button>
+          <p>{{ couponName }} :    -${{ showValue }}</p>
+        </ion-item>
+      </ion-list>
+
+      <h2 *ngIf="priceData" text-left style="float: left; width: 100%;">Total: {{ addPt.input_22.toFixed(2) | currency:'USD':true:'1.2-2'}}</h2>
+      <ion-input formControlName="input_4_6" type="hidden" name="input_4_6" id="input_4_6" value="United States"></ion-input>
+      <ion-input formControlName="input_9" type="hidden" name="input_9" id="input_9" value="PatientTrackingEntry"></ion-input>
+      <ion-input formControlName="input_18_1" type="hidden" name="input_18_1" id="input_18_1" value="input_18_1"></ion-input>
+      <ion-input formControlName="input_18_2" type="hidden" name="input_18_2" id="input_18_2" value="$30.99"></ion-input>
+      <ion-input formControlName="input_18_3" type="hidden" name="input_18_3" id="input_18_3" value="1"></ion-input>
+      <ion-input formControlName="input_20" type="hidden" name="input_20" id="input_20" value="1"></ion-input>
+
+      <ion-input formControlName="input_22" name="input_22" id="input_22" value="0" hidden></ion-input>
+      <ion-input formControlName="_gform_submit_nonce_1" type="hidden" name="_gform_submit_nonce_1" id="_gform_submit_nonce_1" value="e044812b33"></ion-input>
+      <ion-input formControlName="is_submit_1" type="hidden" name="is_submit_1" id="is_submit_1" value="1"></ion-input>
+      <ion-input formControlName="gform_submit" type="hidden" name="gform_submit" id="gform_submit" value="1"></ion-input>
+
+      <ion-input formControlName="gform_target_page_number_1" type="hidden" name="gform_target_page_number_1" id="gform_target_page_number_1" value="1"></ion-input>
+      <ion-input formControlName="gform_source_page_number_1" type="hidden" name="gform_source_page_number_1" id="gform_source_page_number_1" value="0"></ion-input>
+      <ion-input formControlName="user_id" type="hidden" name="user_id" id="user_id"></ion-input>
+
+      <button ion-button class="submit-btn theme-btn" block full type="submit">ADD PATIENT</button>
+
+    </form>
+  </div>
+</ion-content>

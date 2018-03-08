@@ -1,0 +1,82 @@
+page-add-manualevent {
+
+  ion-content.content {
+    background: color($colors, bg-color);
+    background-image: url(../../assets/images/app-bg.png);
+    background-size: cover;
+  }
+  .form-content {
+    background: color($colors, primary);
+
+    .logo-row {
+      padding-top: 50px;
+      padding-bottom: 20px;
+    }
+    ion-row {
+      align-items: center;
+      text-align: center;
+    }
+
+    ion-item {
+      border-radius: 5px !important;
+      padding-left: 15px !important;
+      font-size: 0.9em;
+      margin-bottom: 10px;
+      box-shadow: none !important;
+      border: 0 !important;
+    }
+    .item-radio {
+      background-color: transparent !important;
+      border: 1px solid #ffffff !important;
+    }
+    .item-block .item-inner {
+      border-bottom: 0px;
+    }
+
+    ion-list {
+      margin: 0 !important;
+    }
+
+    .item-inner {
+      border-bottom-color: #ffffff !important;
+      box-shadow: none !important;
+    }
+
+    .theme-btn {
+      //@include gradientButton();
+      border-radius: 5px !important;
+      border-bottom: 3px solid #001541;
+      box-shadow: none;
+      height: 4.5rem;
+    }
+
+    .forgot-btn {
+      color: color($colors, secondary);
+    }
+    button.button-default {
+      @include gradientButton();
+      width: 100%;
+      margin-top: 20px;
+      margin: 0px;
+    }
+    button.disable-hover.button.button-ios.button-default.button-default-ios {
+      margin-top: 5px;
+
+    }
+    ion-select {
+      max-width: 100%;
+      width: 100%;
+      padding-left: 0px;
+    }
+    h2 {
+      margin-top: 0px;
+      margin-bottom: 5px;
+    }
+    p {
+      margin-bottom: 30px;
+      font-size: 14px;
+      color: #404040;
+    }
+
+  }
+}

@@ -1,0 +1,141 @@
+page-patient-list {
+  .toolbar-ios.searchBar {
+    .button.button-default{
+      width: auto;
+      background: transparent;
+      border: 0;
+      margin: 0;
+      display: inline-block;
+    }
+  }
+
+  .toolbar-ios.searchBar ion-item.item.item-block.item-ios {
+    background: transparent;
+    padding: 0;
+    border: 0;
+    min-height: 0;
+  }
+  .toolbar-ios.searchBar .label-ios{
+    margin: 0;
+  }
+  .toolbar-ios.searchBar .item-ios.item-block .item-inner{
+    border: 0;
+  }
+  ion-content.content {
+    background: color($colors, bg-color);
+    background-image:url(../../assets/images/app-bg.png);
+    background-size: cover;
+  }
+  .item-ios{
+
+  }
+
+  ion-card.card{
+    @include borderRadius(10px);
+    background: #fff;
+    border: 0px;
+    margin: 0px;
+    padding: 0px 0px !important;
+    width: calc(100% - 0px);
+  }
+  button.button-default{
+    @include gradientButton();
+    width: 48%;
+    margin-top: 20px;
+  }
+  button.disable-hover.button.button-ios.button-default.button-default-ios {
+    margin-top: 5px;
+  }
+  .patient_list {
+    background: color($colors, primary);
+
+    .logo-row {
+      padding-top: 50px;
+      padding-bottom: 20px;
+    }
+
+    ion-item {
+      padding-left: 15px !important;
+      font-size: 0.9em;
+      margin-bottom: 10px;
+      box-shadow: none !important;
+      border: 0 !important;
+      padding:0px;
+      border-radius: 5px !important;
+      color: #ffffff;
+    }
+
+    ion-list {
+      margin: 0 !important;
+
+    }
+
+    .theme-outline-btn {
+      border: 2px solid color($colors, dark);
+      box-shadow: none;
+      height: 4.3rem;
+      color: color($colors, secondary);
+      margin-top: 15px;
+    }
+    ion-card{ margin-top: 10px;
+    }
+    .search-box ion-icon{ font-weight:normal; margin-left: 10px;
+      }
+    .patient-details{
+      button.button-outline{
+        font-size:12px; color: #ffffff; background: #022e8d; border-radius: 100%; width: 23px; height: 23px;
+        box-shadow: none; line-height: 0; margin: 0px; margin-left: 4px; padding-left: 10px;
+      }
+      ion-item p{
+        font-size: 12px; margin: 0px;
+      }
+      ion-item h2{
+        font-size: 14px; margin: 0px; font-weight: 600;
+      }
+      ion-item .label {
+        margin: 0px 0px 0px 0;
+      }
+      ion-item {
+        margin-bottom: 0px;
+      }
+      label{
+        max-width: 100px;
+      }
+
+    }
+    .patient-address{
+      ion-item {
+        margin-bottom: 0px;
+        min-height: 25px !important;
+        padding-top: 4px !important;
+        padding-bottom: 4px !important;
+      }
+      ion-item:nth-child(odd) {
+        background-color:#0545a5;
+        border-radius: 0px !important;
+      }
+
+      ion-item:nth-child(even) {
+        background-color: #1e5ebe;
+        border-radius: 0px !important;
+      }
+      ion-label{
+        white-space: normal;
+        margin: 0px;
+      }
+      span{
+        font-size: 11px; color:#78aeff;
+        width: 30%;
+        float: left;
+      }
+      p {
+        float: right;
+        color: #fff !important;
+        width: 60%;
+      }
+    }
+
+
+
+  }
+}

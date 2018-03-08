@@ -1,0 +1,86 @@
+{
+    "cordova-plugin-uniquedeviceid": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-uniquedeviceid"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "cordova-plugin-statusbar": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-statusbar@2.2.2"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "cordova-plugin-whitelist": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-whitelist@1.3.1"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "ionic-plugin-keyboard": {
+        "source": {
+            "type": "registry",
+            "id": "ionic-plugin-keyboard@~2.2.1"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "cordova-plugin-device": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-device@^1.1.6"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "cordova-plugin-splashscreen": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-splashscreen@~4.0.1"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "cordova-sqlite-storage": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-sqlite-storage"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "ionic-plugin-deeplinks": {
+        "source": {
+            "type": "registry",
+            "id": "ionic-plugin-deeplinks@^1.0.15"
+        },
+        "is_top_level": true,
+        "variables": {
+            "URL_SCHEME": "myapp",
+            "DEEPLINK_SCHEME": "https",
+            "DEEPLINK_HOST": "bpcitracker.com"
+        }
+    },
+    "com.paypal.cordova.mobilesdk": {
+        "source": {
+            "type": "registry",
+            "id": "com.paypal.cordova.mobilesdk@^3.5.0"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "card.io.cordova.mobilesdk": {
+        "source": {
+            "type": "registry",
+            "id": "card.io.cordova.mobilesdk@2.1.0"
+        },
+        "is_top_level": false,
+        "variables": {}
+    }
+}

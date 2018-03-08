@@ -1,0 +1,8 @@
+{
+  "name": "BPCI",
+  "app_id": "a626a924",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}

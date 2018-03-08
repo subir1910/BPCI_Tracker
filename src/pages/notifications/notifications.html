@@ -1,0 +1,61 @@
+<ion-header>
+  <ion-navbar color="primary" hideBackButton="true">
+    <ion-buttons start>
+      <button ion-button icon-only menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>Alert Notifications</ion-title>
+  </ion-navbar>
+  <ion-toolbar *ngIf="showSearchbar">
+    <ion-searchbar></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content  padding>
+  <ion-row *ngIf="notificationData">
+  <!--
+  <form (ngSubmit)="register()" #registerForm="ngForm">
+
+    <h2>Order By</h2>
+    <ion-list>
+      <ion-item>
+        <ion-select placeholder="Newest First">
+          <ion-option value="nes">NES</ion-option>
+          <ion-option value="n64">Nintendo64</ion-option>
+          <ion-option value="ps">PlayStation</ion-option>
+          <ion-option value="genesis">Sega Genesis</ion-option>
+          <ion-option value="saturn">Sega Saturn</ion-option>
+          <ion-option value="snes">SNES</ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+
+
+    <button  ion-button >
+      Unread
+    </button>
+
+    <button ion-button>
+      Read
+    </button>
+
+  </form>
+-->
+
+  <ion-card *ngFor="let notifications of notificationData.response">
+    <ion-list class="notification_content">
+      <ion-item>
+        <ion-icon name="notifications" float-left></ion-icon>
+        <h3>Patient <strong> {{ notifications.patient_name }} </strong> replied with pain level - <span>{{ notifications.message }}</span></h3>
+        <p>{{ notifications.date }}</p>
+      </ion-item>
+    </ion-list>
+  </ion-card>
+  </ion-row>
+
+  <ion-row *ngIf="notificationStatus">
+    <h3 style="margin-top: 5%;">No Notification Found</h3>
+  </ion-row>
+</ion-content>

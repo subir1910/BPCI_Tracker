@@ -1,0 +1,194 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {
+      "config.xml": {
+        "parents": {
+          "/*": [
+            {
+              "xml": "<feature name=\"CardIO\"><param name=\"ios-package\" onload=\"false\" value=\"CardIOCordovaPlugin\" /></feature>",
+              "count": 1
+            },
+            {
+              "xml": "<feature name=\"PayPalMobile\"><param name=\"ios-package\" onload=\"true\" value=\"PayPalMobileCordovaPlugin\" /></feature>",
+              "count": 1
+            },
+            {
+              "xml": "<feature name=\"Device\"><param name=\"ios-package\" value=\"CDVDevice\" /></feature>",
+              "count": 1
+            },
+            {
+              "xml": "<feature name=\"SplashScreen\"><param name=\"ios-package\" value=\"CDVSplashScreen\" /><param name=\"onload\" value=\"true\" /></feature>",
+              "count": 1
+            },
+            {
+              "xml": "<feature name=\"StatusBar\"><param name=\"ios-package\" value=\"CDVStatusBar\" /><param name=\"onload\" value=\"true\" /></feature>",
+              "count": 1
+            },
+            {
+              "xml": "<preference name=\"StatusBarOverlaysWebView\" value=\"true\" />",
+              "count": 1
+            },
+            {
+              "xml": "<preference name=\"StatusBarStyle\" value=\"lightcontent\" />",
+              "count": 1
+            },
+            {
+              "xml": "<feature name=\"UniqueDeviceID\"><param name=\"ios-package\" value=\"CDVUniqueDeviceID\" /><param name=\"onload\" value=\"true\" /></feature>",
+              "count": 1
+            },
+            {
+              "xml": "<feature name=\"SQLitePlugin\"><param name=\"ios-package\" value=\"SQLitePlugin\" /></feature>",
+              "count": 1
+            },
+            {
+              "xml": "<feature name=\"IonicDeeplinkPlugin\"><param name=\"ios-package\" onload=\"true\" value=\"IonicDeeplinkPlugin\" /></feature>",
+              "count": 1
+            },
+            {
+              "xml": "<feature name=\"Keyboard\"><param name=\"ios-package\" onload=\"true\" value=\"IonicKeyboard\" /></feature>",
+              "count": 1
+            }
+          ]
+        }
+      },
+      "*-Info.plist": {
+        "parents": {
+          "CFBundleURLTypes": [
+            {
+              "xml": "<array><dict><key>CFBundleURLSchemes</key><array><string>myapp</string></array></dict></array>",
+              "count": 1
+            }
+          ]
+        }
+      }
+    }
+  },
+  "installed_plugins": {
+    "card.io.cordova.mobilesdk": {
+      "PACKAGE_NAME": "com.bpci.tracker"
+    },
+    "com.paypal.cordova.mobilesdk": {
+      "PACKAGE_NAME": "com.bpci.tracker"
+    },
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "com.bpci.tracker"
+    },
+    "cordova-plugin-splashscreen": {
+      "PACKAGE_NAME": "com.bpci.tracker"
+    },
+    "cordova-plugin-statusbar": {
+      "PACKAGE_NAME": "com.bpci.tracker"
+    },
+    "cordova-plugin-uniquedeviceid": {
+      "PACKAGE_NAME": "com.bpci.tracker"
+    },
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "com.bpci.tracker"
+    },
+    "cordova-sqlite-storage": {
+      "PACKAGE_NAME": "com.bpci.tracker"
+    },
+    "ionic-plugin-deeplinks": {
+      "URL_SCHEME": "myapp",
+      "DEEPLINK_SCHEME": "https",
+      "DEEPLINK_HOST": "bpcitracker.com",
+      "PACKAGE_NAME": "com.bpci.tracker"
+    },
+    "ionic-plugin-keyboard": {
+      "PACKAGE_NAME": "com.bpci.tracker"
+    }
+  },
+  "dependent_plugins": {},
+  "modules": [
+    {
+      "id": "card.io.cordova.mobilesdk.CardIO",
+      "file": "plugins/card.io.cordova.mobilesdk/www/cdv-plugin-card-io.js",
+      "pluginId": "card.io.cordova.mobilesdk",
+      "clobbers": [
+        "CardIO"
+      ]
+    },
+    {
+      "id": "com.paypal.cordova.mobilesdk.PayPalMobile",
+      "file": "plugins/com.paypal.cordova.mobilesdk/www/cdv-plugin-paypal-mobile-sdk.js",
+      "pluginId": "com.paypal.cordova.mobilesdk",
+      "clobbers": [
+        "PayPalMobile"
+      ]
+    },
+    {
+      "id": "cordova-plugin-device.device",
+      "file": "plugins/cordova-plugin-device/www/device.js",
+      "pluginId": "cordova-plugin-device",
+      "clobbers": [
+        "device"
+      ]
+    },
+    {
+      "id": "cordova-plugin-splashscreen.SplashScreen",
+      "file": "plugins/cordova-plugin-splashscreen/www/splashscreen.js",
+      "pluginId": "cordova-plugin-splashscreen",
+      "clobbers": [
+        "navigator.splashscreen"
+      ]
+    },
+    {
+      "id": "cordova-plugin-statusbar.statusbar",
+      "file": "plugins/cordova-plugin-statusbar/www/statusbar.js",
+      "pluginId": "cordova-plugin-statusbar",
+      "clobbers": [
+        "window.StatusBar"
+      ]
+    },
+    {
+      "id": "cordova-plugin-uniquedeviceid.UniqueDeviceID",
+      "file": "plugins/cordova-plugin-uniquedeviceid/www/uniqueid.js",
+      "pluginId": "cordova-plugin-uniquedeviceid",
+      "merges": [
+        "window.plugins.uniqueDeviceID"
+      ]
+    },
+    {
+      "id": "cordova-sqlite-storage.SQLitePlugin",
+      "file": "plugins/cordova-sqlite-storage/www/SQLitePlugin.js",
+      "pluginId": "cordova-sqlite-storage",
+      "clobbers": [
+        "SQLitePlugin"
+      ]
+    },
+    {
+      "id": "ionic-plugin-deeplinks.deeplink",
+      "file": "plugins/ionic-plugin-deeplinks/www/deeplink.js",
+      "pluginId": "ionic-plugin-deeplinks",
+      "clobbers": [
+        "IonicDeeplink"
+      ],
+      "runs": true
+    },
+    {
+      "id": "ionic-plugin-keyboard.keyboard",
+      "file": "plugins/ionic-plugin-keyboard/www/ios/keyboard.js",
+      "pluginId": "ionic-plugin-keyboard",
+      "clobbers": [
+        "cordova.plugins.Keyboard"
+      ],
+      "runs": true
+    }
+  ],
+  "plugin_metadata": {
+    "card.io.cordova.mobilesdk": "2.1.0",
+    "com.paypal.cordova.mobilesdk": "3.5.0",
+    "cordova-plugin-device": "1.1.4",
+    "cordova-plugin-splashscreen": "4.0.3",
+    "cordova-plugin-statusbar": "2.2.2",
+    "cordova-plugin-uniquedeviceid": "1.3.2",
+    "cordova-plugin-whitelist": "1.3.1",
+    "cordova-sqlite-storage": "2.0.4",
+    "ionic-plugin-deeplinks": "1.0.15",
+    "ionic-plugin-keyboard": "2.2.1"
+  }
+}

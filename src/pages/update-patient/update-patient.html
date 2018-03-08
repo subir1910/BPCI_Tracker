@@ -1,0 +1,469 @@
+<ion-header>
+  <ion-navbar color="primary" hideBackButton="true">
+    <ion-buttons start>
+      <button ion-button icon-only (click)="closeModal()">
+        <ion-icon name="ios-close-circle-outline"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>Update Patient</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="form-content" padding>
+  <div class="login-box">
+
+    <form #updatePatientForm="ngForm" [formGroup]="updatePatientFormGroup" (ngSubmit)="updatePatientApi(updatePatientForm)">
+
+      <h2>Account Information</h2>
+      <ion-list>
+        <ion-item>
+          <ion-input type="text" name="input_1_10_3" id="input_1_10_3" formControlName="input_1_10_3"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input formControlName="input_1_10_6" type="text" name="input_1_10_6" id="input_1_10_6" ></ion-input>
+        </ion-item>
+
+      </ion-list>
+
+      <h2>Patient Language</h2>
+      <ion-list>
+        <ion-item>
+          <ion-select formControlName="input_1_11" name="input_1_11" id="input_1_11">
+            <ion-option value="English">English</ion-option>
+            <ion-option value="Spanish">Spanish</ion-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+
+      <h2>Patient Time Zone</h2>
+      <ion-list>
+        <ion-item>
+          <ion-select formControlName="input_1_12" name="input_1_12" id="input_1_12">
+            <ion-option value="PST">Los Angeles (PST)</ion-option>
+            <ion-option value="EST">New York (EST)</ion-option>
+            <ion-option value="CST">Chicago (CST)</ion-option>
+            <ion-option value="MST">Denver (MST)</ion-option>
+            <ion-option value="ARIZONA">Pheonix (ARIZONA)</ion-option>
+            <ion-option value="AKST">Anchorage (AKST)</ion-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+
+      <h2>Patient Mobile Phone*</h2>
+      <ion-list>
+        <ion-item>
+          <input [textMask]="{mask: masks.phoneNumber}" [class.invalid]="!updatePatientFormGroup.controls.input_1_2.valid && (updatePatientFormGroup.controls.input_1_2.dirty)" class="text-input text-input-ios" formControlName="input_1_2" type="tel" name="input_1_2" id="input_1_2" required>
+        </ion-item>
+      </ion-list>
+
+
+      <h2>Alternate Contact Mobile Phone</h2>
+      <ion-list>
+        <ion-item>
+          <input [textMask]="{mask: masks.phoneNumber}" [class.invalid]="!updatePatientFormGroup.controls.input_1_3.valid && (updatePatientFormGroup.controls.input_1_3.dirty)" class="text-input text-input-ios" formControlName="input_1_3" type="tel" name="input_1_3" id="input_1_3" required>
+        </ion-item>
+      </ion-list>
+
+      <p>Family Member or Other Responsible Party</p>
+      <h2>Patient Address*</h2>
+      <ion-list>
+        <ion-item>
+          <ion-input formControlName="input_1_4_2" type="text" name="input_1_4_2" id="input_1_4_2" required></ion-input>
+        </ion-item>
+      </ion-list>
+
+      <h2>City</h2>
+      <ion-list>
+        <ion-item>
+          <ion-input formControlName="input_1_4_3" type="text" name="input_1_4_3" id="input_1_4_3" id="input_1_4_3" required></ion-input>
+        </ion-item>
+      </ion-list>
+
+      <h2>State</h2>
+      <ion-list>
+        <ion-item>
+          <ion-input formControlName="input_1_4_4" type="text" name="input_1_4_4" id="input_1_4_4" id="input_1_4_4" required></ion-input>
+        </ion-item>
+      </ion-list>
+
+      <h2>Zip / Postal Code</h2>
+      <ion-list>
+        <ion-item>
+          <ion-input formControlName="input_1_4_5" type="text" name="input_1_4_5" id="input_1_4_5" id="ngModel" required></ion-input>
+        </ion-item>
+      </ion-list>
+
+      <h2>Country</h2>
+      <ion-list>
+        <ion-item>
+          <ion-select formControlName="input_1_4_6" name="input_1_4_6" id="input_1_4_6" tabindex="16">
+            <ion-option value="United States" selected="selected">United States</ion-option>
+            <ion-option value="Afghanistan">Afghanistan</ion-option>
+            <ion-option value="Albania">Albania</ion-option>
+            <ion-option value="Algeria">Algeria</ion-option>
+            <ion-option value="American Samoa">American Samoa</ion-option>
+            <ion-option value="Andorra">Andorra</ion-option>
+            <ion-option value="Angola">Angola</ion-option>
+            <ion-option value="Antigua and Barbuda">Antigua and Barbuda</ion-option>
+            <ion-option value="Argentina">Argentina</ion-option>
+            <ion-option value="Armenia">Armenia</ion-option>
+            <ion-option value="Australia">Australia</ion-option>
+            <ion-option value="Austria">Austria</ion-option>
+            <ion-option value="Azerbaijan">Azerbaijan</ion-option>
+            <ion-option value="Bahamas">Bahamas</ion-option>
+            <ion-option value="Bahrain">Bahrain</ion-option>
+            <ion-option value="Bangladesh">Bangladesh</ion-option>
+            <ion-option value="Barbados">Barbados</ion-option>
+            <ion-option value="Belarus">Belarus</ion-option>
+            <ion-option value="Belgium">Belgium</ion-option>
+            <ion-option value="Belize">Belize</ion-option>
+            <ion-option value="Benin">Benin</ion-option>
+            <ion-option value="Bermuda">Bermuda</ion-option>
+            <ion-option value="Bhutan">Bhutan</ion-option>
+            <ion-option value="Bolivia">Bolivia</ion-option>
+            <ion-option value="Bosnia and Herzegovina">Bosnia and Herzegovina</ion-option>
+            <ion-option value="Botswana">Botswana</ion-option>
+            <ion-option value="Brazil">Brazil</ion-option>
+            <ion-option value="Brunei">Brunei</ion-option>
+            <ion-option value="Bulgaria">Bulgaria</ion-option>
+            <ion-option value="Burkina Faso">Burkina Faso</ion-option>
+            <ion-option value="Burundi">Burundi</ion-option>
+            <ion-option value="Cambodia">Cambodia</ion-option>
+            <ion-option value="Cameroon">Cameroon</ion-option>
+            <ion-option value="Canada">Canada</ion-option>
+            <ion-option value="Cape Verde">Cape Verde</ion-option>
+            <ion-option value="Cayman Islands">Cayman Islands</ion-option>
+            <ion-option value="Central African Republic">Central African Republic</ion-option>
+            <ion-option value="Chad">Chad</ion-option>
+            <ion-option value="Chile">Chile</ion-option>
+            <ion-option value="China">China</ion-option>
+            <ion-option value="Colombia">Colombia</ion-option>
+            <ion-option value="Comoros">Comoros</ion-option>
+            <ion-option value="Congo, Democratic Republic of the">Congo, Democratic Republic of the</ion-option>
+            <ion-option value="Congo, Republic of the">Congo, Republic of the</ion-option>
+            <ion-option value="Costa Rica">Costa Rica</ion-option>
+            <ion-option value="C�te d'Ivoire">Côte d'Ivoire</ion-option>
+            <ion-option value="Croatia">Croatia</ion-option>
+            <ion-option value="Cuba">Cuba</ion-option>
+            <ion-option value="Cyprus">Cyprus</ion-option>
+            <ion-option value="Czech Republic">Czech Republic</ion-option>
+            <ion-option value="Denmark">Denmark</ion-option>
+            <ion-option value="Djibouti">Djibouti</ion-option>
+            <ion-option value="Dominica">Dominica</ion-option>
+            <ion-option value="Dominican Republic">Dominican Republic</ion-option>
+            <ion-option value="East Timor">East Timor</ion-option>
+            <ion-option value="Ecuador">Ecuador</ion-option>
+            <ion-option value="Egypt">Egypt</ion-option>
+            <ion-option value="El Salvador">El Salvador</ion-option>
+            <ion-option value="Equatorial Guinea">Equatorial Guinea</ion-option>
+            <ion-option value="Eritrea">Eritrea</ion-option>
+            <ion-option value="Estonia">Estonia</ion-option>
+            <ion-option value="Ethiopia">Ethiopia</ion-option>
+            <ion-option value="Faroe Islands">Faroe Islands</ion-option>
+            <ion-option value="Fiji">Fiji</ion-option>
+            <ion-option value="Finland">Finland</ion-option>
+            <ion-option value="France">France</ion-option>
+            <ion-option value="French Polynesia">French Polynesia</ion-option>
+            <ion-option value="Gabon">Gabon</ion-option>
+            <ion-option value="Gambia">Gambia</ion-option>
+            <ion-option value="Georgia">Georgia</ion-option>
+            <ion-option value="Germany">Germany</ion-option>
+            <ion-option value="Ghana">Ghana</ion-option>
+            <ion-option value="Greece">Greece</ion-option>
+            <ion-option value="Greenland">Greenland</ion-option>
+            <ion-option value="Grenada">Grenada</ion-option>
+            <ion-option value="Guam">Guam</ion-option>
+            <ion-option value="Guatemala">Guatemala</ion-option>
+            <ion-option value="Guinea">Guinea</ion-option>
+            <ion-option value="Guinea-Bissau">Guinea-Bissau</ion-option>
+            <ion-option value="Guyana">Guyana</ion-option>
+            <ion-option value="Haiti">Haiti</ion-option>
+            <ion-option value="Honduras">Honduras</ion-option>
+            <ion-option value="Hong Kong">Hong Kong</ion-option>
+            <ion-option value="Hungary">Hungary</ion-option>
+            <ion-option value="Iceland">Iceland</ion-option>
+            <ion-option value="India">India</ion-option>
+            <ion-option value="Indonesia">Indonesia</ion-option>
+            <ion-option value="Iran">Iran</ion-option>
+            <ion-option value="Iraq">Iraq</ion-option>
+            <ion-option value="Ireland">Ireland</ion-option>
+            <ion-option value="Israel">Israel</ion-option>
+            <ion-option value="Italy">Italy</ion-option>
+            <ion-option value="Jamaica">Jamaica</ion-option>
+            <ion-option value="Japan">Japan</ion-option>
+            <ion-option value="Jordan">Jordan</ion-option>
+            <ion-option value="Kazakhstan">Kazakhstan</ion-option>
+            <ion-option value="Kenya">Kenya</ion-option>
+            <ion-option value="Kiribati">Kiribati</ion-option>
+            <ion-option value="North Korea">North Korea</ion-option>
+            <ion-option value="South Korea">South Korea</ion-option>
+            <ion-option value="Kosovo">Kosovo</ion-option>
+            <ion-option value="Kuwait">Kuwait</ion-option>
+            <ion-option value="Kyrgyzstan">Kyrgyzstan</ion-option>
+            <ion-option value="Laos">Laos</ion-option>
+            <ion-option value="Latvia">Latvia</ion-option>
+            <ion-option value="Lebanon">Lebanon</ion-option>
+            <ion-option value="Lesotho">Lesotho</ion-option>
+            <ion-option value="Liberia">Liberia</ion-option>
+            <ion-option value="Libya">Libya</ion-option>
+            <ion-option value="Liechtenstein">Liechtenstein</ion-option>
+            <ion-option value="Lithuania">Lithuania</ion-option>
+            <ion-option value="Luxembourg">Luxembourg</ion-option>
+            <ion-option value="Macedonia">Macedonia</ion-option>
+            <ion-option value="Madagascar">Madagascar</ion-option>
+            <ion-option value="Malawi">Malawi</ion-option>
+            <ion-option value="Malaysia">Malaysia</ion-option>
+            <ion-option value="Maldives">Maldives</ion-option>
+            <ion-option value="Mali">Mali</ion-option>
+            <ion-option value="Malta">Malta</ion-option>
+            <ion-option value="Marshall Islands">Marshall Islands</ion-option>
+            <ion-option value="Mauritania">Mauritania</ion-option>
+            <ion-option value="Mauritius">Mauritius</ion-option>
+            <ion-option value="Mexico">Mexico</ion-option>
+            <ion-option value="Micronesia">Micronesia</ion-option>
+            <ion-option value="Moldova">Moldova</ion-option>
+            <ion-option value="Monaco">Monaco</ion-option>
+            <ion-option value="Mongolia">Mongolia</ion-option>
+            <ion-option value="Montenegro">Montenegro</ion-option>
+            <ion-option value="Morocco">Morocco</ion-option>
+            <ion-option value="Mozambique">Mozambique</ion-option>
+            <ion-option value="Myanmar">Myanmar</ion-option>
+            <ion-option value="Namibia">Namibia</ion-option>
+            <ion-option value="Nauru">Nauru</ion-option>
+            <ion-option value="Nepal">Nepal</ion-option>
+            <ion-option value="Netherlands">Netherlands</ion-option>
+            <ion-option value="New Zealand">New Zealand</ion-option>
+            <ion-option value="Nicaragua">Nicaragua</ion-option>
+            <ion-option value="Niger">Niger</ion-option>
+            <ion-option value="Nigeria">Nigeria</ion-option>
+            <ion-option value="Northern Mariana Islands">Northern Mariana Islands</ion-option>
+            <ion-option value="Norway">Norway</ion-option>
+            <ion-option value="Oman">Oman</ion-option>
+            <ion-option value="Pakistan">Pakistan</ion-option>
+            <ion-option value="Palau">Palau</ion-option>
+            <ion-option value="Palestine, State of">Palestine, State of</ion-option>
+            <ion-option value="Panama">Panama</ion-option>
+            <ion-option value="Papua New Guinea">Papua New Guinea</ion-option>
+            <ion-option value="Paraguay">Paraguay</ion-option>
+            <ion-option value="Peru">Peru</ion-option>
+            <ion-option value="Philippines">Philippines</ion-option>
+            <ion-option value="Poland">Poland</ion-option>
+            <ion-option value="Portugal">Portugal</ion-option>
+            <ion-option value="Puerto Rico">Puerto Rico</ion-option>
+            <ion-option value="Qatar">Qatar</ion-option>
+            <ion-option value="Romania">Romania</ion-option>
+            <ion-option value="Russia">Russia</ion-option>
+            <ion-option value="Rwanda">Rwanda</ion-option>
+            <ion-option value="Saint Kitts and Nevis">Saint Kitts and Nevis</ion-option>
+            <ion-option value="Saint Lucia">Saint Lucia</ion-option>
+            <ion-option value="Saint Vincent and the Grenadines">Saint Vincent and the Grenadines</ion-option>
+            <ion-option value="Samoa">Samoa</ion-option>
+            <ion-option value="San Marino">San Marino</ion-option>
+            <ion-option value="Sao Tome and Principe">Sao Tome and Principe</ion-option>
+            <ion-option value="Saudi Arabia">Saudi Arabia</ion-option>
+            <ion-option value="Senegal">Senegal</ion-option>
+            <ion-option value="Serbia">Serbia</ion-option>
+            <ion-option value="Seychelles">Seychelles</ion-option>
+            <ion-option value="Sierra Leone">Sierra Leone</ion-option>
+            <ion-option value="Singapore">Singapore</ion-option>
+            <ion-option value="Sint Maarten">Sint Maarten</ion-option>
+            <ion-option value="Slovakia">Slovakia</ion-option>
+            <ion-option value="Slovenia">Slovenia</ion-option>
+            <ion-option value="Solomon Islands">Solomon Islands</ion-option>
+            <ion-option value="Somalia">Somalia</ion-option>
+            <ion-option value="South Africa">South Africa</ion-option>
+            <ion-option value="Spain">Spain</ion-option>
+            <ion-option value="Sri Lanka">Sri Lanka</ion-option>
+            <ion-option value="Sudan">Sudan</ion-option>
+            <ion-option value="Sudan, South">Sudan, South</ion-option>
+            <ion-option value="Suriname">Suriname</ion-option>
+            <ion-option value="Swaziland">Swaziland</ion-option>
+            <ion-option value="Sweden">Sweden</ion-option>
+            <ion-option value="Switzerland">Switzerland</ion-option>
+            <ion-option value="Syria">Syria</ion-option>
+            <ion-option value="Taiwan">Taiwan</ion-option>
+            <ion-option value="Tajikistan">Tajikistan</ion-option>
+            <ion-option value="Tanzania">Tanzania</ion-option>
+            <ion-option value="Thailand">Thailand</ion-option>
+            <ion-option value="Togo">Togo</ion-option>
+            <ion-option value="Tonga">Tonga</ion-option>
+            <ion-option value="Trinidad and Tobago">Trinidad and Tobago</ion-option>
+            <ion-option value="Tunisia">Tunisia</ion-option>
+            <ion-option value="Turkey">Turkey</ion-option>
+            <ion-option value="Turkmenistan">Turkmenistan</ion-option>
+            <ion-option value="Tuvalu">Tuvalu</ion-option>
+            <ion-option value="Uganda">Uganda</ion-option>
+            <ion-option value="Ukraine">Ukraine</ion-option>
+            <ion-option value="United Arab Emirates">United Arab Emirates</ion-option>
+            <ion-option value="United Kingdom">United Kingdom</ion-option>
+            <ion-option value="Uruguay">Uruguay</ion-option>
+            <ion-option value="Uzbekistan">Uzbekistan</ion-option>
+            <ion-option value="Vanuatu">Vanuatu</ion-option>
+            <ion-option value="Vatican City">Vatican City</ion-option>
+            <ion-option value="Venezuela">Venezuela</ion-option>
+            <ion-option value="Vietnam">Vietnam</ion-option>
+            <ion-option value="Virgin Islands, British">Virgin Islands, British</ion-option>
+            <ion-option value="Virgin Islands, U.S.">Virgin Islands, U.S.</ion-option>
+            <ion-option value="Yemen">Yemen</ion-option>
+            <ion-option value="Zambia">Zambia</ion-option>
+            <ion-option value="Zimbabwe">Zimbabwe</ion-option>
+          </ion-select>
+
+        </ion-item>
+      </ion-list>
+
+
+
+      <h2>Notes</h2>
+      <ion-list>
+        <ion-item>
+          <ion-textarea formControlName="input_14" name="input_14" id="input_14"></ion-textarea>
+        </ion-item>
+      </ion-list>
+
+      <h2>Patient Episode Type*</h2>
+      <ion-list>
+        <ion-item>
+          <ion-select formControlName="input_1_15" name="input_1_15" id="input_1_15" tabindex="17">
+            <ion-option value="Acute myocardial infarction" selected="selected">Acute myocardial infarction</ion-option>
+            <ion-option value="Amputation">Amputation</ion-option>
+            <ion-option value="Atherosclerosis">Atherosclerosis</ion-option>
+            <ion-option value="Automatic implantable cardiac defibrillator generator or lead">Automatic implantable cardiac defibrillator generator or lead</ion-option>
+            <ion-option value="Back and neck except spinal fusion">Back and neck except spinal fusion</ion-option>
+            <ion-option value="Cardiac arrhythmia">Cardiac arrhythmia</ion-option>
+            <ion-option value="Cardiac defibrillator">Cardiac defibrillator</ion-option>
+            <ion-option value="Cardiac valve">Cardiac valve</ion-option>
+            <ion-option value="Cellulitis">Cellulitis</ion-option>
+            <ion-option value="Cervical spinal fusion">Cervical spinal fusion</ion-option>
+            <ion-option value="Chest pain">Chest pain</ion-option>
+            <ion-option value="Chronic obstructive pulmonary disease, bronchitis/asthmae">Chronic obstructive pulmonary disease, bronchitis/asthmae</ion-option>
+            <ion-option value="Combined anterior posterior spinal fusion">Combined anterior posterior spinal fusion</ion-option>
+            <ion-option value="Complex non-Cervical spinal fusion">Complex non-Cervical spinal fusion</ion-option>
+            <ion-option value="Congestive heart failure">Congestive heart failure</ion-option>
+            <ion-option value="Coronary artery bypass graft surgery">Coronary artery bypass graft surgery</ion-option>
+            <ion-option value="Diabetes">Diabetes</ion-option>
+            <ion-option value="Esophagitis, gastroenteritis and other digestive disorders">Esophagitis, gastroenteritis and other digestive disorders</ion-option>
+            <ion-option value="Double joint replacement of the lower extremity">Double joint replacement of the lower extremity</ion-option>
+            <ion-option value="Fractures femur and hip/pelvis">Fractures femur and hip/pelvis</ion-option>
+            <ion-option value="Gastrointestinal hemorrhage">Gastrointestinal hemorrhage</ion-option>
+            <ion-option value="Gastrointestinal obstruction">Gastrointestinal obstruction</ion-option>
+            <ion-option value="Hip and femur procedures except major joint">Hip and femur procedures except major joint</ion-option>
+            <ion-option value="Lower extremity and humerus procedure except hip, foot, femur">Lower extremity and humerus procedure except hip, foot, femur</ion-option>
+            <ion-option value="Major bowel">Major bowel</ion-option>
+            <ion-option value="Major cardiovascular procedure">Major cardiovascular procedure</ion-option>
+            <ion-option value="Major joint replacement of the lower extremity">Major joint replacement of the lower extremity</ion-option>
+            <ion-option value="Major joint replacement of upper extremity">Major joint replacement of upper extremity</ion-option>
+            <ion-option value="Medical non-infectious orthopedic">Medical non-infectious orthopedic</ion-option>
+            <ion-option value="Medical peripheral vascular disorders">Medical peripheral vascular disorders</ion-option>
+            <ion-option value="Nutritional and metabolic disorders">Nutritional and metabolic disorders</ion-option>
+            <ion-option value="Other knee procedures">Other knee procedures</ion-option>
+            <ion-option value="Other respiratory">Other respiratory</ion-option>
+            <ion-option value="Other vascular surgery">Other vascular surgery</ion-option>
+            <ion-option value="Pacemaker">Pacemaker</ion-option>
+            <ion-option value="Pacemaker Device replacement or revision">Pacemaker Device replacement or revision</ion-option>
+            <ion-option value="Percutaneous coronary intervention">Percutaneous coronary intervention</ion-option>
+            <ion-option value="Red blood cell disorders">Red blood cell disorders</ion-option>
+            <ion-option value="Removal of orthopedic devices">Removal of orthopedic devices</ion-option>
+            <ion-option value="Renal failure">Renal failure</ion-option>
+            <ion-option value="Revision of the hip or knee">Revision of the hip or knee</ion-option>
+            <ion-option value="Sepsis">Sepsis</ion-option>
+            <ion-option value="Simple pneumonia and respiratory infections">Simple pneumonia and respiratory infections</ion-option>
+            <ion-option value="Spinal fusion Stroke">Spinal fusion Stroke</ion-option>
+            <ion-option value="Syncope and collapse">Syncope and collapse</ion-option>
+            <ion-option value="Transient ischemia">Transient ischemia</ion-option>
+            <ion-option value="Urinary tract infection">Urinary tract infection</ion-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+
+
+      <h2>Referral Source<br>(Hospital, SNF, Home Health)*</h2>
+      <ion-list>
+        <ion-item>
+          <ion-input formControlName="input_1_6" type="text" name="input_1_6" id="input_1_6" required></ion-input>
+        </ion-item>
+        <span class="reg_span">
+          Family Member or Other Responsible Party
+        </span>
+      </ion-list>
+      <div *ngIf="paymentInfo != 'yes'">
+        <h2>Tracking Start Date</h2>
+        <ion-item class="date-time-item">
+          <ion-label>Select date</ion-label>
+          <ion-datetime formControlName="input_1_7" displayFormat="MM-DD-YYYY" max="2020-10-31" id="input_1_7" name="input_1_7"></ion-datetime>
+        </ion-item>
+        <h2>Tracking Period</h2>
+        <ion-list>
+          <ion-item>
+            <ion-select #episodes_value formControlName="input_1_21" name="input_1_21" id="input_1_21" (ionChange)="calculatePrice(episodes_value.value)">
+              <ion-option *ngFor="let period of service_type" price="" value="{{ period.value }}">{{ period.text }} +{{ period.price }}</ion-option>
+            </ion-select>
+          </ion-item>
+          <span class="reg_span">
+          How long will you track patient episode?
+        </span>
+        </ion-list>
+
+      <h2 hidden>Tracking Period</h2>
+      <ion-list hidden>
+        <ion-item>
+          <ion-select formControlName="input_1_8" name="input_1_8" id="input_1_8" disabled>
+            <ion-option value="10 Days">10 Days</ion-option>
+            <ion-option value="20 Days">20 Days</ion-option>
+            <ion-option value="30 Days">30 Days</ion-option>
+            <ion-option value="60 Days">60 Days</ion-option>
+            <ion-option value="90 Days">90 Days</ion-option>
+          </ion-select>
+        </ion-item>
+        <span class="reg_span">
+          How long will you track patient episode?
+        </span>
+      </ion-list>
+
+      <h2>Service Price</h2>
+      <ion-row>
+        <span class="ginput_product_price" id="addPt.input_18_1">{{ addPt.input_18_1 }}</span>
+      </ion-row>
+
+      <h2>Tracking Communication Type</h2>
+      <ion-list radio-group="relationship" formControlName="input_1_13" name="input_1_13">
+        <ion-item>
+          <ion-label>Text (SMS) Tracking</ion-label>
+          <ion-radio value="sms" checked></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label>Voice Tracking</ion-label>
+          <ion-radio value="voice"></ion-radio>
+        </ion-item>
+      </ion-list>
+
+      <h2>Coupon</h2>
+      <ion-list class="coupon_text">
+        <ion-item>
+          <ion-input #coupanValue formControlName="input_1_23" type="text" placeholder="" id="input_1_23" name="input_1_23"></ion-input>
+        </ion-item>
+        <button ion-button type="button" (click)="checkCoupan(updatePatientForm);">Apply</button>
+      </ion-list>
+
+      <ion-list *ngIf="couponData" class="cupon_data">
+        <ion-item>
+          <button ion-button item-end type="button" (click)="cancelCoupan(beforeCoupanAmnt, addPatientForm)">
+            <ion-icon name="close"></ion-icon>
+          </button>
+          <p>{{ couponName }} :    -{{ showValue }}</p>
+        </ion-item>
+      </ion-list>
+
+      <h2 *ngIf="priceData" text-left style="float: left; width: 100%;">Total: {{ addPt.input_22.toFixed(2) | currency:'USD':true:'1.2-2'}}</h2>
+        <ion-input formControlName="input_22" name="input_22" id="input_22" value="{{ addPt.input_22.toFixed(2) }}" hidden></ion-input>
+      </div>
+
+
+      <ion-input formControlName="EntryId" type="hidden" name="EntryId" id="EntryId"></ion-input>
+      <ion-input formControlName="EntryId" type="hidden" name="EntryId" id="EntryId"></ion-input>
+
+      <button ion-button class="submit-btn theme-btn" block full type="submit">UPDATE PATIENT</button>
+
+    </form>
+  </div>
+</ion-content>

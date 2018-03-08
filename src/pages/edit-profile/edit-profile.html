@@ -1,0 +1,78 @@
+<ion-header>
+  <ion-navbar color="primary" hideBackButton="true">
+    <ion-buttons start>
+      <button ion-button icon-only (click)="closeModal()">
+        <ion-icon name="close"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>Edit Profile</ion-title>
+  </ion-navbar>
+  <ion-toolbar *ngIf="showSearchbar">
+    <ion-searchbar></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-card>
+    <ion-list class="profile_content">
+    <form #editProfileForm="ngForm" (ngSubmit)="updateProfile(editProfileForm)">
+      <ion-item>
+        <ion-label stacked>Organization Name</ion-label>
+        <ion-input [(ngModel)]="organization_name" type="text" name="organization_name" id="organization_name" value="{{ organization_name }}"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label stacked>Physical Address </ion-label>
+        <ion-input type="text" name="address" id="address" [(ngModel)]="address" value="{{ address }}"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label stacked>City </ion-label>
+        <ion-input type="text" name="city" id="city" [(ngModel)]="city" value="{{ city }}"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label stacked>State </ion-label>
+        <ion-input type="text" name="state" id="state" [(ngModel)]="state" value="{{ state }}"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label stacked>Zip Code </ion-label>
+        <ion-input type="text" name="zip_code" id="state" [(ngModel)]="zip_code" value="{{ zip_code }}"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label stacked>Organization Business Phone </ion-label>
+        <ion-input type="text" name="organization_business_phone" id="organization_business_phone" [(ngModel)]="organization_business_phone" value ="{{ organization_business_phone }}"></ion-input>
+        <h2></h2>
+      </ion-item>
+
+      <ion-item>
+        <ion-label stacked>Primary Mobile Number For Patient Alerts </ion-label>
+        <ion-input type="text" name="primary_contact" id="primary_contact" [(ngModel)]="primary_contact" value="{{ primary_contact }}"></ion-input>
+      </ion-item>
+
+      <!--<ion-item>
+        <ion-label stacked>Alternate Mobile Number For Patient Alerts </ion-label>
+        <ion-input type="text" name="alt_contact" id="alt_contact" [(ngModel)]="alt_contact" value="{{ alt_contact }}"></ion-input>
+      </ion-item>-->
+
+      <ion-item>
+        <ion-label stacked>Website </ion-label>
+        <ion-input type="text" name="webiste" id="webiste" [(ngModel)]="website" value="{{ website }}"></ion-input>
+      </ion-item>
+
+      <ion-input type="hidden" [(ngModel)]="user_id" name="user_id" id="user_id" value="{{ user_id }}"></ion-input>
+      <ion-input type="hidden" [(ngModel)]="zip_code" name="zip_code" id="zip_code" value="{{ zip_code }}"></ion-input>
+      <ion-grid>
+        <ion-row>
+          <ion-col><button type="submit" ion-button block style="width:100%">Update</button></ion-col>
+        </ion-row>
+      </ion-grid>
+    </form>
+    </ion-list>
+  </ion-card>
+
+
+</ion-content>

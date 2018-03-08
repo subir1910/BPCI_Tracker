@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-buttons start>
+      <button ion-button icon-only (click)="closeModal()">
+        <ion-icon name="ios-close-circle-outline"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>Chat History</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content class="chat_history" padding ng-app>
+<ion-row *ngIf="!responseLenth" text-center>
+  <h3 text-center >No Records</h3>
+</ion-row>
+<div *ngIf="responseLenth">
+  <!--<h2 class="date-time">July 20, 2017</h2>-->
+<div *ngFor="let chatList of chatData.response">
+          <!--
+          <div ng-if="chatList.direction =='Message Sent'">
+            <p>{{ chatList.date }}</p>
+            <div class="company">{{ chatList.message }}</div>
+            <div class="call">call</div>
+          </div>
+          <div ng-if="chatList.direction =='Message Received'">
+            <p>{{ chatList.date }}</p>
+            <div class="client">
+              {{ chatList.message }}
+              <p>1.34 PM</p>
+            </div>
+            <div class="name">Thomsun</div>
+          </div>
+        -->
+  <p style="float: left; width: 100%;" text-center="">{{ chatList.date }}</p>
+
+    <div *ngIf="chatList.direction === 'Message Sent'" class="company">
+      {{ chatList.message }}
+    </div>
+  <div *ngIf="chatList.direction === 'Message Received'" class="client">
+    {{ chatList.message }}
+  </div>
+  <div *ngIf="chatList.direction === 'Message Sent'" class="call">{{ chatList.tracking_type }}</div>
+  <div *ngIf="chatList.direction === 'Message Received'" class="name">{{ chatList.tracking_type }}</div>
+
+</div>
+</div>
+
+</ion-content>

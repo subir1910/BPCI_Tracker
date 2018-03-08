@@ -1,0 +1,84 @@
+<!--
+  Generated template for the ProfilePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar color="primary" hideBackButton="true">
+    <ion-buttons start>
+      <button ion-button icon-only menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>Profile</ion-title>
+  </ion-navbar>
+  <ion-toolbar *ngIf="showSearchbar">
+    <ion-searchbar></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content padding (ionRefresh)="doRefresh($event)">
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="arrow-dropdown"
+      pullingText="Pull to refresh"
+      refreshingSpinner="ios">
+    </ion-refresher-content>
+  </ion-refresher>
+  <ion-card *ngIf="hasLogin">
+    <ion-list class="profile_content">
+      <ion-item>
+        <p>Organization Name</p>
+        <h2 *ngIf="userDetails.response.organization_name" >{{ userDetails.response.organization_name }}</h2>
+      </ion-item>
+
+      <ion-item>
+        <p>Physical Address </p>
+        <h2 *ngIf="userDetails.response.address">{{ userDetails.response.address }}</h2>
+      </ion-item>
+
+      <ion-item>
+        <p>City </p>
+        <h2 *ngIf="userDetails.response.city">{{ userDetails.response.city }}</h2>
+      </ion-item>
+
+      <ion-item>
+        <p>State  </p>
+        <h2 *ngIf="userDetails.response.state">{{ userDetails.response.state }}</h2>
+      </ion-item>
+
+      <ion-item>
+        <p>Zip Code  </p>
+        <h2 *ngIf="userDetails.response.zip_code">{{ userDetails.response.zip_code }}</h2>
+      </ion-item>
+      <ion-item>
+        <p>Organization Business Phone </p>
+        <h2 *ngIf="userDetails.response.organization_business_phone">{{ userDetails.response.organization_business_phone }}</h2>
+      </ion-item>
+
+      <ion-item>
+        <p>Primary Mobile Number For Patient Alerts </p>
+        <h2 *ngIf="userDetails.response.primary_contact">{{ userDetails.response.primary_contact }}</h2>
+      </ion-item>
+
+      <ion-item *ngIf="userDetails.response.alt_contact">
+        <p>General/Public Phone Number  </p>
+        <h2 *ngIf="userDetails.response.alt_contact">{{ userDetails.response.alt_contact }} </h2>
+      </ion-item>
+
+      <ion-item *ngIf="userDetails.response.website">
+          <p>Website  </p>
+          <h2 *ngIf="userDetails.response.website">{{ userDetails.response.website }} </h2>
+        </ion-item>
+
+    </ion-list>
+  </ion-card>
+
+  <ion-grid *ngIf="userDetails">
+    <ion-row>
+      <ion-col width-100><button ion-button style="width:100%" (click)="presentProfileModal()">Edit</button></ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

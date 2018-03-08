@@ -1,0 +1,226 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>New User Registration</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="form-content" padding>
+  <div class="login-box">
+    <p *ngIf="submitAttempt" style="color: red;">Please fill out all details accurately.</p>
+    <form #registerForm="ngForm" [formGroup]="registerDocForm" (ngSubmit)="signup(registerDocForm.value)">
+      <ion-row>
+        <ion-col>
+          <ion-label text-left>Doctor Information</ion-label>
+          <ion-list>
+            <ion-item>
+              <ion-input type="text" formControlName="username" name="username" autocapitalize="off" (ionFocus)="changeUserInput()" placeholder="Username" [class.invalid]="duplicateUser || (!registerDocForm.controls.username.valid && (registerDocForm.controls.username.dirty || submitAttempt))"></ion-input>
+            </ion-item>
+
+            <div *ngIf="registerDocForm.controls.username.pending" class="invalid">
+              <p>Checking username...</p>
+            </div>
+            <!--
+            <div class="invalid" *ngIf="!registerDocForm.controls.username.valid && !registerDocForm.controls.username.pending && (registerDocForm.controls.username.dirty || submitAttempt)">
+              <p>Sorry, that username can not be used!</p>
+            </div>
+            -->
+            <div class="invalid" *ngIf="duplicateUser">
+              <p>Sorry, that username can not be used!</p>
+            </div>
+
+            <div class="invalid" *ngIf="username.hasError('required') && username.touched"
+                 class="error-box" class="invalid"><p>* Username is required!</p></div>
+            <div class="invalid" *ngIf="username.hasError('pattern') && username.touched"
+                 class="error-box" class="invalid"><p>* Username must be letters and numbers only.</p></div>
+
+
+            <ion-item [class.invalid]="!password.valid && password.touched">
+              <ion-input type="password" formControlName="password" ngControl='password' placeholder="Password" name="password" [class.invalid]="!registerDocForm.controls.password.valid && (registerDocForm.controls.password.dirty || submitAttempt)"></ion-input>
+            </ion-item>
+            <!--Password alerts-->
+
+            <div class="invalid" *ngIf="!registerDocForm.controls.password.valid && !registerDocForm.controls.password.pending && (registerDocForm.controls.password.dirty || submitAttempt)" class="invalid">
+              <p>* Password is required!</p>
+            </div>
+
+            <div class="invalid" *ngIf="password.hasError('minlength') && password.touched" class="invalid">
+              <p>* Minimum password length is 3!</p>
+            </div>
+
+            <div class="invalid" *ngIf="password.hasError('maxlength') && password.touched" class="invalid">
+              <p>* Maximum password length is 25!</p>
+            </div>
+            <!--/Password Alerts-->
+
+            <ion-item [class.invalid]="!confirm_password.valid && confirm_password.touched">
+              <ion-input type="password" [class.invalid]="!registerDocForm.controls.confirm_password.valid && (registerDocForm.controls.confirm_password.dirty || submitAttempt)" formControlName="confirm_password" ngControl='repeat' placeholder="Confirm Password" name="confirm_password" id='repeat'></ion-input>
+            </ion-item>
+            <!--confirm Password alerts-->
+            <div class="invalid" *ngIf="confirm_password.hasError('pw_mismatch') && confirm_password.touched" class="invalid">
+              <p>* Passwords do not match!</p>
+            </div>
+            <!--/Confirm Password Alerts-->
+
+            <ion-item [class.invalid]="!email.valid && email.touched">
+              <ion-input type="email" [class.invalid]="duplicateEmail || (!registerDocForm.controls.email.valid && (registerDocForm.controls.email.dirty || submitAttempt))" (ionFocus)='changeEmailInput()' formControlName="email" placeholder="Email Address" name="email"></ion-input>
+            </ion-item>
+
+            <div class="invalid" *ngIf="duplicateEmail">
+              <p>Sorry, That email address is already taken. Please try another!</p>
+            </div>
+
+            <!--Email Alerts-->
+            <div class="invalid" *ngIf="!registerDocForm.controls.email.valid && !registerDocForm.controls.email.pending && (registerDocForm.controls.email.dirty || submitAttempt)" required class="invalid">
+              <p>* Email is required!</p>
+            </div>
+            <div *ngIf="email.hasError('minlength') && email.touched" class="invalid">
+              <p>* Minimum username length is 3!</p>
+            </div>
+
+            <div class="invalid" *ngIf="email.hasError('maxlength') && email.touched" class="invalid">
+              <p>* Maximum username length is 25!</p>
+            </div>
+
+            <div class="invalid" *ngIf="email.hasError('invalidEmail') && email.touched" class="invalid">
+              <p>* Invalid e-mail!</p>
+            </div>
+            <!--/Email Alerts-->
+            <ion-item [class.invalid]="!name.valid && name.touched">
+              <ion-input type="text" [class.invalid]="!registerDocForm.controls.name.valid && (registerDocForm.controls.name.dirty || submitAttempt)" formControlName="name" placeholder="Contact Name" name="name"></ion-input>
+            </ion-item>
+            <!---->
+            <div class="invalid" *ngIf="name.hasError('required') && name.touched" class="invalid">
+              <p>* Name is required</p>
+            </div>
+            <!---->
+
+              <ion-input type="hidden" formControlName="device_id" name="device_id"></ion-input>
+              <ion-input type="hidden" formControlName="device_type" name="device_type"></ion-input>
+
+          </ion-list>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-label text-left>More Information</ion-label>
+          <ion-list>
+            <ion-item [class.invalid]="!name.valid && name.touched">
+              <ion-input type="text" [class.invalid]="!registerDocForm.controls.organization_name.valid && (registerDocForm.controls.organization_name.dirty || submitAttempt)" formControlName="organization_name" placeholder="Organization Name" name="organization_name" required></ion-input>
+            </ion-item>
+            <div class="invalid" *ngIf="!registerDocForm.controls.organization_name.valid && !registerDocForm.controls.organization_name.pending && (registerDocForm.controls.organization_name.dirty || submitAttempt)" required class="invalid">
+              <p>* Organization Name is required!</p>
+            </div>
+
+            <ion-item [class.invalid]="!address.valid && address.touched">
+              <ion-input type="text" [class.invalid]="!registerDocForm.controls.address.valid && (registerDocForm.controls.address.dirty || submitAttempt)" formControlName="address" placeholder="Street" name="address"></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-input type="text" [class.invalid]="!registerDocForm.controls.city.valid && (registerDocForm.controls.city.dirty || submitAttempt)" formControlName="city" placeholder="City" name="city"></ion-input>
+            </ion-item>
+            <!--
+            <ion-item>
+              <ion-input type="text" [class.invalid]="!registerDocForm.controls.state.valid && (registerDocForm.controls.state.dirty || submitAttempt)" formControlName="state" placeholder="State" name="state"></ion-input>
+            </ion-item>
+          -->
+            <ion-list>
+              <ion-item>
+                <ion-select formControlName="state" [class.invalid]="!registerDocForm.controls.state.valid && (registerDocForm.controls.state.dirty || submitAttempt)" name="state" placeholder="State">
+                  <ion-option value="United States" selected="selected">United States</ion-option>
+                  <ion-option value="Alabama">Alabama</ion-option>
+                  <ion-option value="Alaska">Alaska</ion-option>
+                  <ion-option value="Arizona">Arizona</ion-option>
+                  <ion-option value="Arkansas">Arkansas</ion-option>
+                  <ion-option value="California">California</ion-option>
+                  <ion-option value="Colorado">Colorado</ion-option>
+                  <ion-option value="Connecticut">Connecticut</ion-option>
+                  <ion-option value="Delaware">Delaware</ion-option>
+                  <ion-option value="District of Columbia">District of Columbia</ion-option>
+                  <ion-option value="Florida">Florida</ion-option>
+                  <ion-option value="Georgia">Georgia</ion-option>
+                  <ion-option value="Hawaii">Hawaii</ion-option>
+                  <ion-option value="Idaho">Idaho</ion-option>
+                  <ion-option value="Illinois">Illinois</ion-option>
+                  <ion-option value="Indiana">Indiana</ion-option>
+                  <ion-option value="Iowa">Iowa</ion-option>
+                  <ion-option value="Kansas">Kansas</ion-option>
+                  <ion-option value="Kentucky">Kentucky</ion-option>
+                  <ion-option value="Louisiana">Louisiana</ion-option>
+                  <ion-option value="Maine">Maine</ion-option>
+                  <ion-option value="Maryland">Maryland</ion-option>
+                  <ion-option value="Massachusetts">Massachusetts</ion-option>
+                  <ion-option value="Michigan">Michigan</ion-option>
+                  <ion-option value="Minnesota">Minnesota</ion-option>
+                  <ion-option value="Mississippi">Mississippi</ion-option>
+                  <ion-option value="Missouri">Missouri</ion-option>
+                  <ion-option value="Montana">Montana</ion-option>
+                  <ion-option value="Nebraska">Nebraska</ion-option>
+                  <ion-option value="Nevada">Nevada</ion-option>
+                  <ion-option value="New Hampshire">New Hampshire</ion-option>
+                  <ion-option value="New Jersey">New Jersey</ion-option>
+                  <ion-option value="New Mexico">New Mexico</ion-option>
+                  <ion-option value="New York">New York</ion-option>
+                  <ion-option value="North Carolina">North Carolina</ion-option>
+                  <ion-option value="North Dakota">North Dakota</ion-option>
+                  <ion-option value="Ohio">Ohio</ion-option>
+                  <ion-option value="Oklahoma">Oklahoma</ion-option>
+                  <ion-option value="Oregon">Oregon</ion-option>
+                  <ion-option value="Pennsylvania">Pennsylvania</ion-option>
+                  <ion-option value="Rhode Island">Rhode Island</ion-option>
+                  <ion-option value="South Carolina">South Carolina</ion-option>
+                  <ion-option value="South Dakota">South Dakota</ion-option>
+                  <ion-option value="Tennessee">Tennessee</ion-option>
+                  <ion-option value="Texas">Texas</ion-option>
+                  <ion-option value="Utah">Utah</ion-option>
+                  <ion-option value="Vermont">Vermont</ion-option>
+                  <ion-option value="Virginia">Virginia</ion-option>
+                  <ion-option value="Washington">Washington</ion-option>
+                  <ion-option value="West Virginia">West Virginia</ion-option>
+                  <ion-option value="Wisconsin">Wisconsin</ion-option>
+                  <ion-option value="Wyoming">Wyoming</ion-option>
+                  <ion-option value="Armed Forces Americas">Armed Forces Americas</ion-option>
+                  <ion-option value="Armed Forces Europe">Armed Forces Europe</ion-option>
+                  <ion-option value="Armed Forces Pacific">Armed Forces Pacific</ion-option>
+                </ion-select>
+              </ion-item>
+            </ion-list>
+
+            <ion-item>
+              <ion-input type="text" [class.invalid]="!registerDocForm.controls.zip_code.valid && (registerDocForm.controls.zip_code.dirty || submitAttempt)" formControlName="zip_code" placeholder="Zip Code" name="zip_code"></ion-input>
+            </ion-item>
+
+            <ion-item [class.invalid]="!primary_contact.valid && primary_contact.touched">
+              <input type="tel" class="text-input text-input-ios" [class.invalid]="!registerDocForm.controls.primary_contact.valid && (registerDocForm.controls.primary_contact.dirty || submitAttempt)" formControlName="primary_contact" name="primary_contact" placeholder="Alert Manager Number" [textMask]="{mask: masks.phoneNumber}" />
+            </ion-item>
+            <span style="font-size: 12px; margin-bottom: 15px; text-align: left; display: inline-block;" text-left>IMPORTANT: Contact who will receive patient alert messages" Please make mandatory field. (Number not made public)</span>
+
+            <ion-item>
+              <input type="tel" [class.invalid]="!registerDocForm.controls.organization_business_phone.valid && (registerDocForm.controls.organization_business_phone.dirty || submitAttempt)" class="text-input text-input-ios" [textMask]="{mask: masks.phoneNumber}" formControlName="organization_business_phone" placeholder="General/Public Phone Number" name="organization_business_phone" />
+            </ion-item>
+            <p style="font-size: 12px; margin-bottom: 15px; margin-top:0; float: left; text-align: left !important; display: inline-block;" text-left>Contact used for public display</p>
+
+            <ion-item>
+              <input type="text" [class.invalid]="!registerDocForm.controls.website.valid && (registerDocForm.controls.website.dirty || submitAttempt)" class="text-input text-input-ios" formControlName="website" placeholder="Website" name="website" />
+            </ion-item>
+
+          </ion-list>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col class="signup-col">
+          <button ion-button class="submit-btn theme-btn" full type="submit">Register</button>
+        </ion-col>
+      </ion-row>
+    </form>
+    <ion-row>
+      <div class="terms-block">
+        <span><ion-checkbox [(ngModel)]="termCheck" color="dark" id="termCheck" name="termCheck" checked="true"></ion-checkbox></span>
+        <span class="anchor_btn"><a style="display: inline-block;" class="terms-btn" block clear color="secondary" href="#" onclick="window.open('https://bpcitracker.com/terms-of-use/', '_system', 'location=yes');">Terms & Condition</a></span>
+      </div>
+    </ion-row>
+
+
+  </div>
+</ion-content>

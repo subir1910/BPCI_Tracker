@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-navbar color="primary" hideBackButton="true">
+    <ion-buttons start>
+      <button ion-button icon-only menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>Add Manual Alert</ion-title>
+  </ion-navbar>
+  <ion-toolbar *ngIf="showSearchbar">
+    <ion-searchbar></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="form-content" padding>
+
+  <ion-row *ngIf="userCollection" text-left>
+    <form (ngSubmit)="addManualReport(reportForm)" #reportForm="ngForm">
+      <ion-note>
+        <p>Allows users to enter and track manual patient
+          events (encounters) without using SMS Text/Voice
+          feature.</p>
+      </ion-note>
+      <h2>Please Select Patient *</h2>
+      <ion-list>
+        <ion-item>
+          <ion-select [(ngModel)]="EntryId" name="EntryId" id="EntryId" placeholder="Please select patient">
+            <ion-option *ngFor="let patient of userCollection.response.patient_data" value="{{ patient.p_id }}" >{{ patient.p_name }}</ion-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+
+      <h2>Message</h2>
+      <ion-list>
+        <ion-item>
+          <ion-textarea ngModel rows="3" name="message" id="message" type="text" placeholder=""></ion-textarea>
+        </ion-item>
+      </ion-list>
+
+      <h2>Date(YY/MM/DD) *</h2>
+      <ion-item>
+        <ion-label>Select date</ion-label>
+        <ion-datetime [(ngModel)]="entrydate" id="entrydate" displayFormat="MM-DD-YYYY" name="entrydate"></ion-datetime>
+      </ion-item>
+
+      <button ion-button type="submit">Submit</button>
+    </form>
+  </ion-row>
+</ion-content>
